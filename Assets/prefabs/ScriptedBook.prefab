@@ -108,6 +108,7 @@ GameObject:
   - component: {fileID: 2310971988032960055}
   - component: {fileID: 2310971988032960052}
   - component: {fileID: 2310971988032960053}
+  - component: {fileID: 4867978738368858301}
   m_Layer: 3
   m_Name: Book
   m_TagString: Untagged
@@ -192,6 +193,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4867978738368858301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2310971988032960059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e01c11c592c4b84ab8f870d25557671, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2310971988162757389
 GameObject:
   m_ObjectHideFlags: 0
@@ -239,6 +252,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Book: {fileID: 2310971988032960058}
   Target: {fileID: 2310971987529273395}
+  CollisionListener: {fileID: 4867978738368858301}
   FallCurve:
     serializedVersion: 2
     m_Curve:
