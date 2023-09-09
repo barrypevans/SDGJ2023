@@ -123,7 +123,7 @@ public class TubeMesh : MonoBehaviour
 
                 m_positions.Add(vertPos);
                 m_normals.Add(vertNormal);
-                m_uvs.Add(new Vector2(rotationPercent, (float)iRing));
+                m_uvs.Add(new Vector2(rotationPercent, ((float)iRing)/20.0f));
                 iRingVert++;
             }
 

@@ -837,6 +837,14 @@ public class SEGI : MonoBehaviour
         return mat;
     }
 
+
+	bool canUpdate;
+
+	void ClayUpdate()
+    {
+		canUpdate = true;
+    }
+
 	void OnPreRender()
 	{
 		//Force reinitialization to make sure that everything is working properly if one of the cameras was unexpectedly destroyed
@@ -848,11 +856,18 @@ public class SEGI : MonoBehaviour
 		if (notReadyToRender)
 			return;
 
-		if (!updateGI)
+#if UNITY_EDITOR
+		if (!Application.isPlaying)
+		{
+			canUpdate = true;
+		}
+#endif
+
+		if (!updateGI || !canUpdate)
 		{
 			return;
 		}
-
+		canUpdate = false;
 		//Cache the previous active render texture to avoid issues with other Unity rendering going on
 		RenderTexture previousActive = RenderTexture.active;
 
