@@ -29,7 +29,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3005397065586576107}
-  m_LocalRotation: {x: -0, y: 0.707107, z: -0, w: 0.7071066}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -114,6 +114,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BodyPointPrefab: {fileID: 5506915598214404877, guid: 1d61344c9f688a748a1f891e0c128772, type: 3}
   GroundedTrigger: {fileID: 3005397065586576100}
+  BodyMaterial: {fileID: 2100000, guid: 65c310f34eff7fa46a3cb3928ee4a2db, type: 2}
   MaxBodyPoints: 100
   TurnRate: 15
   InputDistanceMovementCurve:
@@ -202,7 +203,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 1
 --- !u!65 &3005397065586576100
 BoxCollider:
