@@ -93,7 +93,8 @@ namespace Gameplay
             }
 
             if (BodyPoints.Count >= MaxBodyPoints)
-                HaltMovement();
+                _rigidbody.velocity = Vector3.zero;
+                //HaltMovement();
         }
         private void PickMovementState()
         {
@@ -123,6 +124,8 @@ namespace Gameplay
         }
         private void ApplyMovementInput()
         {
+            _rigidbody.useGravity = _movementState != MovementState.RETRACTING && BodyPoints.Count<MaxBodyPoints;
+
             switch (_movementState)
             {
                 case MovementState.IDLE:
