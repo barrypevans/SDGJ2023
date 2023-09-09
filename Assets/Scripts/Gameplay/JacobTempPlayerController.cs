@@ -12,9 +12,10 @@ namespace Gameplay
         public GameObject BodyPointPrefab;
         public BoxCollider GroundedTrigger;
         public Material BodyMaterial;
-        public int MaxBodyPoints = 4;
+
         public float TurnRate = 15;
-        public float MaxBodyLengh => (MaxBodyPoints - 1) * SegmentLength;
+        public float MaxBodyLength = 50f;
+        public int MaxBodyPoints => Mathf.FloorToInt(MaxBodyLength / SegmentLength) +1;
 
         [Header("Config")]
         public AnimationCurve InputDistanceMovementCurve;
@@ -102,13 +103,13 @@ namespace Gameplay
                             Vector3 direction = (inputRay.GetPoint(dist) - transform.position);
                             TryMove(direction.normalized 
                                 * InputDistanceMovementCurve.Evaluate(direction.magnitude)
-                                * EndOfLengthMovementCurve.Evaluate(MaxBodyLengh - _cachedBodyLength));
+                                * EndOfLengthMovementCurve.Evaluate(MaxBodyLength - _cachedBodyLength));
                         }
                     }
                     break;
                 case MovementState.RETRACTING:
                     HaltMovement(); // Don't let velocity contribute
-                    float newDist = _cachedBodyLength - Time.deltaTime * RetractionCurve.Evaluate(MaxBodyLengh- _cachedBodyLength);
+                    float newDist = _cachedBodyLength - Time.deltaTime * RetractionCurve.Evaluate(MaxBodyLength- _cachedBodyLength);
                     newDist = Mathf.Max(0, newDist); // No negative distances
                     int newFinalPoint = Mathf.FloorToInt(newDist / SegmentLength); // +1 because it starts with a point, but -1 because we want the index
                     float progressOnNewSeg = (newDist % SegmentLength) / SegmentLength;
