@@ -4,12 +4,14 @@ using UnityEngine;
 
 namespace Gameplay
 {
+    [RequireComponent(typeof(TubeMesh))]
     public class JacobTempPlayerController : MonoBehaviour
     {
-        private const float SegmentLength = 0.1f;
+        private const float SegmentLength = 0.6f;
 
         public GameObject BodyPointPrefab;
         public BoxCollider GroundedTrigger;
+        public Material BodyMaterial;
         public int MaxBodyPoints = 4;
         public float TurnRate = 15;
         public float MaxBodyLengh => (MaxBodyPoints - 1) * SegmentLength;
@@ -23,16 +25,45 @@ namespace Gameplay
         private List<GameObject> BodyPoints = new List<GameObject>();
         private Rigidbody _rigidbody;
         private float _cachedBodyLength;
+        private TubeMesh _tubeMesh;
+        private GameObject _tubeMeshObj;
 
-
+        bool _xformPushedToTube;
+        
         void Start()
         {
             _rigidbody = GetComponent<Rigidbody>();
+            _tubeMeshObj = new GameObject();
+            _tubeMesh = _tubeMeshObj.AddComponent<TubeMesh>();
+            _tubeMeshObj.transform.position = Vector3.zero;
+            _tubeMeshObj.GetComponent<MeshRenderer>().material = BodyMaterial;
             BodyPoints.Add(Object.Instantiate(BodyPointPrefab, transform.position, transform.rotation));
+            _tubeMesh.PushNode(BodyPoints[BodyPoints.Count - 1].transform);
+            _xformPushedToTube = false;
+        }
+
+        void PushXformToTube()
+        {
+            if (!_xformPushedToTube)
+            {
+                _xformPushedToTube = true;
+                _tubeMesh.PushNode(transform);
+            }
+        }
+
+        void PopXformFromTube()
+        {
+            if (_xformPushedToTube)
+            {
+                _xformPushedToTube = false;
+                _tubeMesh.PopNode();
+            }
         }
 
         void Update()
         {
+            PopXformFromTube();
+
             _cachedBodyLength = (BodyPoints.Count - 1) * SegmentLength;
             _cachedBodyLength += (transform.position - BodyPoints[BodyPoints.Count - 1].transform.position).magnitude;
 
@@ -96,9 +127,13 @@ namespace Gameplay
                     {
                         Object.Destroy(BodyPoints[i]);
                         BodyPoints.RemoveAt(i);
+                        _tubeMesh.PopNode();
+
                     }
                     break;
             }
+
+            
 
             // We don't jump
             if (_rigidbody.velocity.y>0 &&
@@ -107,7 +142,7 @@ namespace Gameplay
                 _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, 0, _rigidbody.velocity.z);
             }
 
-
+            PushXformToTube();
         }
 
         private void HaltMovement()
@@ -143,6 +178,17 @@ namespace Gameplay
             return; 
         }
 
+        private void UpdateTube()
+        {
+            List<Transform> xforms = new List<Transform>();
+            foreach (var point in BodyPoints)
+            {
+                xforms.Add(point.transform);
+            }
+            xforms.Add(transform);
+           // _tubeMesh.SetNodes(xforms);
+        }
+
         private void DetectExtents()
         {
             // Todo: place more than 1 segment theoretically I guess (lag spike abuse prevention)
@@ -152,6 +198,7 @@ namespace Gameplay
             {
                 Vector3 segmentEndpoint = BodyPoints[BodyPoints.Count-1].transform.position + normalizedOffset * SegmentLength;
                 BodyPoints.Add(Object.Instantiate(BodyPointPrefab, segmentEndpoint, transform.rotation));
+                _tubeMesh.PushNode(BodyPoints[BodyPoints.Count - 1].transform);
             }
 
             if (BodyPoints.Count >= MaxBodyPoints)
