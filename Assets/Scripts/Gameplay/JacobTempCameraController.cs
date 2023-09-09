@@ -7,18 +7,25 @@ namespace Gameplay
     public class JacobTempCameraController : MonoBehaviour
     {
         public float RotationSpeed = 2f;
+        Vector3 lastmousepos;
+
+        private void Start()
+        {
+            lastmousepos = Input.mousePosition;
+        }
         void Update()
         {
-            int direction = 0;
-            if (Input.GetKey(KeyCode.A))
-                direction = -1;
-            else if (Input.GetKey(KeyCode.D))
-                direction = 1;
-
-            if (direction != 0)
+            if (Input.GetKey(KeyCode.Mouse2))
             {
-                transform.Rotate((direction == -1 ? Vector3.down : Vector3.up), Time.deltaTime * RotationSpeed);
+                Vector3 delta = Input.mousePosition - lastmousepos;
+                float direction = delta.x;
+
+                if (direction != 0)
+                {
+                    transform.Rotate(Vector3.up, direction*RotationSpeed);
+                }
             }
+            lastmousepos = Input.mousePosition;
         }
     }
 }

@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef94628799f4dcc43849851e5e2c5717, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  RotationSpeed: 50
+  RotationSpeed: 0.2
 --- !u!1 &7163676271074353382
 GameObject:
   m_ObjectHideFlags: 0
@@ -163,7 +163,7 @@ MonoBehaviour:
   infiniteBounces: 1
   followTransform: {fileID: 0}
   cones: 15
-  coneTraceSteps: 6
+  coneTraceSteps: 10
   coneLength: 1.398
   coneWidth: 2.71
   occlusionStrength: 1.11
