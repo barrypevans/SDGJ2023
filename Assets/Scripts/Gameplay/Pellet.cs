@@ -7,7 +7,7 @@ namespace Gameplay
     public class Pellet : MonoBehaviour
     {
 
-        public int Reward = 5;
+        public float AddedLength = 2.5f;
         private Vector3 _initialPos;
         private float _liveTime = 0f;
         private float _bobRate = 1f;
@@ -32,7 +32,7 @@ namespace Gameplay
                 JacobTempPlayerController controller = other.GetComponent<JacobTempPlayerController>();
                 if (controller != null)
                 {
-                    controller.MaxBodyPoints += Reward;
+                    controller.MaxBodyLength += AddedLength;
                     Object.Destroy(gameObject);
                 }
             }
