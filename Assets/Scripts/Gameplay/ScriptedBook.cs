@@ -7,7 +7,6 @@ namespace Gameplay
 
     public class ScriptedBook : MonoBehaviour
     {
-
         public Transform Book, Target;
         public CollisionBroadcaster CollisionListener;
         public AnimationCurve FallCurve;

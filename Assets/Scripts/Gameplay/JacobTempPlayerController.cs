@@ -8,7 +8,7 @@ namespace Gameplay
     [RequireComponent(typeof(TubeMesh))]
     public class JacobTempPlayerController : MonoBehaviour
     {
-        private const float SegmentLength = 0.6f;
+        private const float SegmentLength = 0.1f;
 
         public GameObject BodyPointPrefab;
         public BoxCollider GroundedTrigger;
@@ -24,6 +24,7 @@ namespace Gameplay
         public AnimationCurve RetractionCurve;
 
         private MovementState _movementState;
+        private float _forcedRetractionDestination = -1;
         private List<GameObject> BodyPoints = new List<GameObject>();
         private Rigidbody _rigidbody;
         private float _cachedBodyLength;
@@ -44,24 +45,6 @@ namespace Gameplay
             _xformPushedToTube = false;
         }
 
-        void PushXformToTube()
-        {
-            if (!_xformPushedToTube)
-            {
-                _xformPushedToTube = true;
-                _tubeMesh.PushNode(transform);
-            }
-        }
-
-        void PopXformFromTube()
-        {
-            if (_xformPushedToTube)
-            {
-                _xformPushedToTube = false;
-                _tubeMesh.PopNode();
-            }
-        }
-
         void Update()
         {
 
@@ -73,26 +56,73 @@ namespace Gameplay
             _cachedBodyLength = (BodyPoints.Count - 1) * SegmentLength;
             _cachedBodyLength += (transform.position - BodyPoints[BodyPoints.Count - 1].transform.position).magnitude;
 
-            DetectExtents();
-
-            if (Input.GetMouseButtonDown(0))
+            if (_cachedBodyLength <= _forcedRetractionDestination)
             {
-                _movementState = MovementState.EXPANDING;
-            }
-            else if (Input.GetMouseButtonUp(0))
-            {
+                _forcedRetractionDestination = -1;
                 _movementState = MovementState.IDLE;
-                HaltMovement();
             }
 
-            if(_movementState!= MovementState.EXPANDING)
+            DetectExtents();
+            PickMovementState();
+            ApplyMovementInput();
+
+            PushXformToTube();
+        }
+
+        #region Move it
+        public void ForceRetract(float distance = -1)
+        {
+            if (distance < 0)
+                _forcedRetractionDestination = 0;
+            else
+                _forcedRetractionDestination = Mathf.Max(0,_cachedBodyLength-distance);
+
+            // TODO: Retraction cause enum, play sfx, play audio
+        }
+
+        private void DetectExtents()
+        {
+            // Todo: place more than 1 segment theoretically I guess (lag spike abuse prevention)
+            Vector3 offset = transform.position - BodyPoints[BodyPoints.Count - 1].transform.position;
+            Vector3 normalizedOffset = offset.normalized;
+            if (offset.magnitude > SegmentLength)
             {
-                if (Input.GetMouseButtonDown(1))
-                    _movementState = MovementState.RETRACTING;
-                else if (Input.GetMouseButtonUp(1))
-                    _movementState = MovementState.IDLE;
+                Vector3 segmentEndpoint = BodyPoints[BodyPoints.Count - 1].transform.position + normalizedOffset * SegmentLength;
+                BodyPoints.Add(Object.Instantiate(BodyPointPrefab, segmentEndpoint, transform.rotation));
+                _tubeMesh.PushNode(BodyPoints[BodyPoints.Count - 1].transform);
             }
 
+            if (BodyPoints.Count >= MaxBodyPoints)
+                HaltMovement();
+        }
+        private void PickMovementState()
+        {
+            if (_forcedRetractionDestination != -1)
+                _movementState = MovementState.RETRACTING;
+            else
+            {
+
+                if (Input.GetMouseButtonDown(0))
+                {
+                    _movementState = MovementState.EXPANDING;
+                }
+                else if (Input.GetMouseButtonUp(0))
+                {
+                    _movementState = MovementState.IDLE;
+                    HaltMovement();
+                }
+
+                if (_movementState != MovementState.EXPANDING)
+                {
+                    if (Input.GetMouseButtonDown(1))
+                        _movementState = MovementState.RETRACTING;
+                    else if (Input.GetMouseButtonUp(1))
+                        _movementState = MovementState.IDLE;
+                }
+            }
+        }
+        private void ApplyMovementInput()
+        {
             switch (_movementState)
             {
                 case MovementState.IDLE:
@@ -106,7 +136,7 @@ namespace Gameplay
                         if (playerGround.Raycast(inputRay, out float dist)) // Mouse is pointed at ground
                         {
                             Vector3 direction = (inputRay.GetPoint(dist) - transform.position);
-                            TryMove(direction.normalized 
+                            TryMove(direction.normalized
                                 * InputDistanceMovementCurve.Evaluate(direction.magnitude)
                                 * EndOfLengthMovementCurve.Evaluate(MaxBodyLength - _cachedBodyLength));
                         }
@@ -114,22 +144,22 @@ namespace Gameplay
                     break;
                 case MovementState.RETRACTING:
                     HaltMovement(); // Don't let velocity contribute
-                    float newDist = _cachedBodyLength - Time.deltaTime * RetractionCurve.Evaluate(MaxBodyLength- _cachedBodyLength);
+                    float newDist = _cachedBodyLength - Time.deltaTime * RetractionCurve.Evaluate(MaxBodyLength - _cachedBodyLength);
                     newDist = Mathf.Max(0, newDist); // No negative distances
                     int newFinalPoint = Mathf.FloorToInt(newDist / SegmentLength); // +1 because it starts with a point, but -1 because we want the index
                     float progressOnNewSeg = (newDist % SegmentLength) / SegmentLength;
 
-                    if(newFinalPoint == BodyPoints.Count - 1) // Just move back on current trajectory
+                    if (newFinalPoint == BodyPoints.Count - 1) // Just move back on current trajectory
                     {
                         Vector3 projectedDirection = transform.position - BodyPoints[BodyPoints.Count - 1].transform.position;
-                        transform.position = BodyPoints[BodyPoints.Count-1].transform.position + (projectedDirection.normalized) * SegmentLength * progressOnNewSeg;
+                        transform.position = BodyPoints[BodyPoints.Count - 1].transform.position + (projectedDirection.normalized) * SegmentLength * progressOnNewSeg;
                         break;
                     }
                     // Otherwise: We need to cull points
                     transform.position = Vector3.Lerp(BodyPoints[newFinalPoint].transform.position, BodyPoints[newFinalPoint + 1].transform.position, progressOnNewSeg);
                     transform.rotation = BodyPoints[newFinalPoint].transform.rotation;
 
-                    for (int i = BodyPoints.Count-1; i>newFinalPoint; i--)
+                    for (int i = BodyPoints.Count - 1; i > newFinalPoint; i--)
                     {
                         Object.Destroy(BodyPoints[i]);
                         BodyPoints.RemoveAt(i);
@@ -139,16 +169,13 @@ namespace Gameplay
                     break;
             }
 
-            
-
             // We don't jump
-            if (_rigidbody.velocity.y>0 &&
+            if (_rigidbody.velocity.y > 0 &&
                 Physics.OverlapBox(GroundedTrigger.bounds.center, GroundedTrigger.bounds.extents, transform.rotation, LayerMask.GetMask("Ground")).Length == 0)
             {
                 _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, 0, _rigidbody.velocity.z);
             }
 
-            PushXformToTube();
         }
 
         private void HaltMovement()
@@ -183,7 +210,25 @@ namespace Gameplay
             transform.forward = newVel;
             return; 
         }
+        #endregion Move it
 
+        #region Tubular bro
+        void PushXformToTube()
+        {
+            if (!_xformPushedToTube)
+            {
+                _xformPushedToTube = true;
+                _tubeMesh.PushNode(transform);
+            }
+        }
+        void PopXformFromTube()
+        {
+            if (_xformPushedToTube)
+            {
+                _xformPushedToTube = false;
+                _tubeMesh.PopNode();
+            }
+        }
         private void UpdateTube()
         {
             List<Transform> xforms = new List<Transform>();
@@ -194,22 +239,7 @@ namespace Gameplay
             xforms.Add(transform);
            // _tubeMesh.SetNodes(xforms);
         }
-
-        private void DetectExtents()
-        {
-            // Todo: place more than 1 segment theoretically I guess (lag spike abuse prevention)
-            Vector3 offset = transform.position - BodyPoints[BodyPoints.Count - 1].transform.position;
-            Vector3 normalizedOffset = offset.normalized;
-            if (offset.magnitude > SegmentLength)
-            {
-                Vector3 segmentEndpoint = BodyPoints[BodyPoints.Count-1].transform.position + normalizedOffset * SegmentLength;
-                BodyPoints.Add(Object.Instantiate(BodyPointPrefab, segmentEndpoint, transform.rotation));
-                _tubeMesh.PushNode(BodyPoints[BodyPoints.Count - 1].transform);
-            }
-
-            if (BodyPoints.Count >= MaxBodyPoints)
-                HaltMovement();
-        }
+        #endregion Tubular bro
 
         public enum MovementState
         {
