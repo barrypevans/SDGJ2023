@@ -79,7 +79,10 @@ namespace Gameplay
             else
             {
                 float newdestination = Mathf.Max(0, _cachedBodyLength - distance);
-                _forcedRetractionDestination = Mathf.Min(_forcedRetractionDestination, newdestination);
+                if (_forcedRetractionDestination > 0)
+                    _forcedRetractionDestination = Mathf.Min(_forcedRetractionDestination, newdestination);
+                else
+                    _forcedRetractionDestination = newdestination;
             }
 
 
