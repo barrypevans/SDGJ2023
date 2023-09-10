@@ -434,8 +434,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sunlight: {fileID: 360414860}
   sceneRootName: Lvl1.5
-  sceneRoot: {fileID: 1156409750}
-  giRoot: {fileID: 550053367}
+  sceneRoot: {fileID: 0}
+  giRoot: {fileID: 1156409751}
+  sunRotation: {x: 23.279383, y: 288.7193, z: 322.49393}
+  softSun: 0.42
+  skyContribution: 0.84
   segi: {fileID: 6611861}
 --- !u!65 &603240396
 BoxCollider:
@@ -788,6 +791,9 @@ MonoBehaviour:
   sceneRootName: lvl1_root
   sceneRoot: {fileID: 0}
   giRoot: {fileID: 570192964}
+  sunRotation: {x: 23.279383, y: 288.7193, z: 322.49393}
+  softSun: 0.42
+  skyContribution: 0.84
   segi: {fileID: 6611861}
 --- !u!65 &1056116719
 BoxCollider:
@@ -867,7 +873,7 @@ GameObject:
   - component: {fileID: 1657972102}
   - component: {fileID: 1657972101}
   m_Layer: 0
-  m_Name: hall-light-region
+  m_Name: kitchen-light-region
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -901,8 +907,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sunlight: {fileID: 360414860}
   sceneRootName: Lvl2
-  sceneRoot: {fileID: 1039848980}
-  giRoot: {fileID: 550053367}
+  sceneRoot: {fileID: 0}
+  giRoot: {fileID: 1039848981}
+  sunRotation: {x: 19.55, y: -11.2, z: 348.45}
+  softSun: 1.18
+  skyContribution: 1.18
   segi: {fileID: 6611861}
 --- !u!65 &1657972102
 BoxCollider:
@@ -971,9 +980,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sunlight: {fileID: 360414860}
-  sceneRootName: 
+  sceneRootName: Hallway-Root
   sceneRoot: {fileID: 0}
   giRoot: {fileID: 550053367}
+  sunRotation: {x: 23.279383, y: 288.7193, z: 322.49393}
+  softSun: 0.42
+  skyContribution: 0.84
   segi: {fileID: 6611861}
 --- !u!65 &1813939940
 BoxCollider:

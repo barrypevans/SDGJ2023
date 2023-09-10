@@ -29,6 +29,9 @@ public class LightingRegion : MonoBehaviour
     public string sceneRootName;
     public GameObject sceneRoot;
     public Transform giRoot;
+    public Vector3 sunRotation;
+    public float softSun;
+    public float skyContribution;
     public SEGI segi;
     private void Awake()
     {
@@ -64,7 +67,15 @@ public class LightingRegion : MonoBehaviour
 
     private void Update()
     {
-        if(sceneRoot)
-            sceneRoot.SetActive(isActive);  
+        if (sceneRoot)
+        {
+            sceneRoot.SetActive(isActive);
+            if (isActive)
+            {
+                sunlight.rotation = Quaternion.Euler(sunRotation);
+                segi.softSunlight = softSun;
+                segi.skyIntensity = skyContribution;
+            }
+        }
     }
 }

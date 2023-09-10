@@ -24,9 +24,9 @@ public class DitherWalls : MonoBehaviour
         {
             Color c = meshRenderer.material.color;
             c.a -= Time.deltaTime * 10;
-            if(c.a <0)
+            if(c.a <.25)
             {
-                c.a = 0.0f;
+                c.a = 0.25f;
             }
             foreach(var mat in meshRenderer.materials)
                 mat.SetColor("_Color", c);
