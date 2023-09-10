@@ -71,3 +71,9 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 Packages/packages-lock.json
+Assets/art/Text/LevelText/Cat+Cactus.png.meta
+Assets/art/Text/LevelText/Cat+Caffeine.png.meta
+Assets/art/Text/LevelText/Cat+Catering.png.meta
+Assets/art/Text/LevelText/Cat+Kate.png.meta
+Assets/art/Text/LevelText/CheckMark.png.meta
+Assets/art/Text/LevelText/X.png.meta
