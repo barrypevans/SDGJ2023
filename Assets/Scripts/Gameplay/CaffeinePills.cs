@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Utility;
 
 namespace Gameplay
 {
@@ -16,8 +17,11 @@ namespace Gameplay
                 if (controller != null)
                 {
                     controller.Caffeinate(CaffeineTime);
-                    if(controller.GetMovementState != JacobTempPlayerController.MovementState.RETRACTING)
+                    if (controller.GetMovementState != JacobTempPlayerController.MovementState.RETRACTING)
+                    {
                         controller.GetComponent<Rigidbody>().AddForce(Vector3.up * Strength);
+                        AudioController.Play(AudioController.Instance.Assets.CatReacts.GetRandom(), false);
+                    }
                 }
             }
         }
