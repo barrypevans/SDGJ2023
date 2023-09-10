@@ -53,6 +53,10 @@ namespace Gameplay
 
         void Update()
         {
+            if (Input.GetKeyDown(KeyCode.RightShift))
+                MaxBodyLength += 100;
+            else if (Input.GetKeyUp(KeyCode.RightShift))
+                MaxBodyLength -= 100;
 
             if (Input.GetKeyDown(KeyCode.R))
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
