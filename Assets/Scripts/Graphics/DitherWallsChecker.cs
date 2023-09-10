@@ -9,7 +9,7 @@ public class DitherWallsChecker : MonoBehaviour
     {
         Vector3 toPlayer = player.position - transform.position;
         toPlayer.Normalize();
-        var hits = Physics.SphereCastAll(new Ray(transform.position, toPlayer), 1);
+        var hits = Physics.SphereCastAll(new Ray(transform.position, toPlayer), 3);
         foreach(var hit in hits)
         {
             DitherWalls dwalls = null;

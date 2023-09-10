@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,7 +8,7 @@ using UnityEngine;
 public class TubeMesh : MonoBehaviour
 {
     readonly int kRingDivisions = 12;
-    readonly float kWidth = .5f;
+    readonly float kWidth = .45f;
     readonly int kNumNodesToUpdate = 5;
 
     MeshFilter m_meshFilter;
@@ -21,6 +22,9 @@ public class TubeMesh : MonoBehaviour
     List<Vector2> m_uvs;
 
     List<int> m_ringStripIndices;
+
+    bool needsUpdate = false;
+    bool canUpdate = true;
 
     private void Awake()
     {
@@ -38,18 +42,33 @@ public class TubeMesh : MonoBehaviour
 
     private void ClayUpdate()
     {
-        //if (Input.GetKeyDown(KeyCode.Space))
-       /* {
-            List<Transform> nodes = new List<Transform>();
-            int numChildren = transform.childCount;
-            int iChild = 0;
-            while (iChild < numChildren)
-            {
-                nodes.Add(transform.GetChild(iChild));
-                iChild++;
-            }
-            SetNodes(nodes);
-        }*/
+        canUpdate = true;
+    }
+
+    private void UpdateMesh()
+    {
+
+            m_mesh.MarkDynamic();
+             m_mesh.Clear();
+            m_mesh.vertices = m_positions.ToArray();
+            m_mesh.normals = m_normals.ToArray();
+            m_mesh.uv = m_uvs.ToArray();
+            m_mesh.SetIndices(m_indices.ToArray(), MeshTopology.Triangles, 0);
+            m_mesh.RecalculateTangents();
+            m_mesh.RecalculateBounds();
+
+
+    }
+
+
+    private void OnRenderObject()
+    {
+        if (canUpdate && needsUpdate)
+        {
+            UpdateMesh();
+            needsUpdate = false;
+            canUpdate = false;
+        }
     }
 
     private void SetupRingStripIndices()
@@ -68,8 +87,8 @@ public class TubeMesh : MonoBehaviour
             m_ringStripIndices.Add(endIndex + kRingDivisions);
             m_ringStripIndices.Add(endIndex);
             m_ringStripIndices.Add(startIndex + kRingDivisions);
-            
-            
+
+
             iRingVert++;
         }
     }
@@ -95,20 +114,15 @@ public class TubeMesh : MonoBehaviour
             m_normals.RemoveRange((m_normals.Count - vertsToRemove), vertsToRemove);
             m_uvs.RemoveRange((m_uvs.Count - vertsToRemove), vertsToRemove);
         }
-        m_mesh.MarkDynamic();
-        m_mesh.SetIndices(m_indices.ToArray(), MeshTopology.Triangles, 0);
-        m_mesh.SetVertices(m_positions);
-        m_mesh.SetNormals(m_normals);
-        m_mesh.SetUVs(0, m_uvs);
-        m_mesh.RecalculateTangents();
-        m_mesh.RecalculateBounds();
+        needsUpdate = true;
     }
 
     public void PushNode(Transform node)
     {
         m_nodes.Add(node);
-        int iRing = m_nodes.Count-1;   
-       // while (iRing < m_nodes.Count)
+        needsUpdate = false;
+        int iRing = m_nodes.Count - 1;
+        // while (iRing < m_nodes.Count)
         {
             // create the vertex ring
             int iRingVert = 0;
@@ -123,7 +137,7 @@ public class TubeMesh : MonoBehaviour
 
                 m_positions.Add(vertPos);
                 m_normals.Add(vertNormal);
-                m_uvs.Add(new Vector2(rotationPercent, (float)iRing));
+                m_uvs.Add(new Vector2(rotationPercent, ((float)iRing) / 20.0f));
                 iRingVert++;
             }
 
@@ -132,18 +146,12 @@ public class TubeMesh : MonoBehaviour
             {
                 foreach (int iStrip in m_ringStripIndices)
                 {
-                    m_indices.Add(iStrip + (iRing-1) * kRingDivisions);
+                    m_indices.Add(iStrip + (iRing - 1) * kRingDivisions);
                 }
             }
 
         }
 
-        m_mesh.MarkDynamic();
-        m_mesh.SetVertices(m_positions);
-        m_mesh.SetNormals(m_normals);
-        m_mesh.SetIndices(m_indices.ToArray(), MeshTopology.Triangles, 0);
-        m_mesh.SetUVs(0, m_uvs);
-        m_mesh.RecalculateTangents();
-        m_mesh.RecalculateBounds();
+        needsUpdate = true;
     }
 }

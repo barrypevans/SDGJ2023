@@ -52,7 +52,7 @@ Shader "Custom/DitheredAlpha"
             o.Alpha = c.a;
 
             fixed ditherSample = tex2D(_Dither, IN.screenPos.xy*100 / IN.screenPos.w);
-            if(o.Alpha<ditherSample)
+            if(o.Alpha<=ditherSample)
                 discard;
 
         }

@@ -19,7 +19,7 @@ namespace Gameplay
             _liveTime = Random.value;
         }
 
-        private void Update()
+        private void ClayUpdate()
         {
             _liveTime += Time.deltaTime* _bobRate;
             transform.position = _initialPos + Vector3.up * Mathf.Sin(_liveTime)*_bobDist;
