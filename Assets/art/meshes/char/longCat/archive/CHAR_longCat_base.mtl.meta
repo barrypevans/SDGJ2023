@@ -1,9 +1,9 @@
 fileFormatVersion: 2
-<<<<<<< HEAD
-guid: 02999cce2edc70644a6d38119bd235e1
-=======
+<<<<<<<< HEAD:Assets/art/meshes/char/rubber_duck/scene.bin.meta
+guid: 123b5059a7274ef469c0b49d308b7786
+========
 guid: 3e100b905e8d7fc4bbd0369fb55766ab
->>>>>>> 564463d2d93efaac9214cba2467f6ad63def9380
+>>>>>>>> f4a0bc20236656820aaf4cb8050fbe7209928801:Assets/art/meshes/char/longCat/archive/CHAR_longCat_base.mtl.meta
 DefaultImporter:
   externalObjects: {}
   userData: 
