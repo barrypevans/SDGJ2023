@@ -33,7 +33,7 @@ namespace Gameplay
             _fallen = true;
             float cursor = 0;
             while (Vector3.Distance(Book.transform.position, Target.transform.position) > 0.1f
-                && Quaternion.Angle(Book.transform.rotation, Target.transform.rotation) > 2f)
+                || Quaternion.Angle(Book.transform.rotation, Target.transform.rotation) > 2f)
             {
                 cursor += Time.deltaTime;
                 Book.transform.position = Vector3.Lerp(_startPos, Target.transform.position, FallCurve.Evaluate(cursor));
