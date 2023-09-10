@@ -252,13 +252,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 360414858}
-  m_LocalRotation: {x: 0.4078078, y: -0.82416606, z: 0.35984057, w: 0.15798068}
+  m_LocalRotation: {x: 0.45789784, y: -0.63384736, z: 0.1604601, w: 0.6023452}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 46.219, y: -182.741, z: -53.823}
+  m_LocalEulerAnglesHint: {x: 49.029, y: -109.871, z: -36.192}
 --- !u!1 &496990645
 GameObject:
   m_ObjectHideFlags: 0
@@ -522,11 +522,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7163676271074353379, guid: 97f5ddc3453846747b18694848fb45b4, type: 3}
       propertyPath: skyIntensity
-      value: 0.84
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7163676271074353379, guid: 97f5ddc3453846747b18694848fb45b4, type: 3}
       propertyPath: softSunlight
-      value: 0.42
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 7163676271074353379, guid: 97f5ddc3453846747b18694848fb45b4, type: 3}
       propertyPath: nearLightGain
@@ -535,7 +535,7 @@ PrefabInstance:
     - target: {fileID: 7163676271074353379, guid: 97f5ddc3453846747b18694848fb45b4, type: 3}
       propertyPath: followTransform
       value: 
-      objectReference: {fileID: 1156409751}
+      objectReference: {fileID: 1386174196}
     - target: {fileID: 7163676271074353379, guid: 97f5ddc3453846747b18694848fb45b4, type: 3}
       propertyPath: secondaryBounceGain
       value: 0
@@ -860,6 +860,36 @@ Transform:
   m_Father: {fileID: 210502062}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1386174195
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1386174196}
+  m_Layer: 0
+  m_Name: giroot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1386174196
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1386174195}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -4.46, y: -3.33, z: 0.9}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2134768960}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1657972099
 GameObject:
   m_ObjectHideFlags: 0
@@ -965,7 +995,7 @@ Transform:
   m_LocalScale: {x: 8.457517, y: 18.979, z: 39.616283}
   m_Children: []
   m_Father: {fileID: 2134768960}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1813939939
 MonoBehaviour:
@@ -983,7 +1013,7 @@ MonoBehaviour:
   sceneRootName: Hallway-Root
   sceneRoot: {fileID: 0}
   giRoot: {fileID: 550053367}
-  sunRotation: {x: 23.279383, y: 288.7193, z: 322.49393}
+  sunRotation: {x: 49.028828, y: 250.1292, z: 323.80844}
   softSun: 0.42
   skyContribution: 0.84
   segi: {fileID: 6611861}
@@ -1035,6 +1065,7 @@ Transform:
   m_LocalPosition: {x: 18.851618, y: 6.7865605, z: 27.776459}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1386174196}
   - {fileID: 1813939938}
   m_Father: {fileID: 0}
   m_RootOrder: 6
