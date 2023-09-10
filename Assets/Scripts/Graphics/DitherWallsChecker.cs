@@ -8,8 +8,9 @@ public class DitherWallsChecker : MonoBehaviour
     void Update()
     {
         Vector3 toPlayer = player.position - transform.position;
+        float dist = toPlayer.magnitude;
         toPlayer.Normalize();
-        var hits = Physics.SphereCastAll(new Ray(transform.position, toPlayer), 3);
+        var hits = Physics.SphereCastAll(new Ray(transform.position, toPlayer), .2f, dist);
         foreach(var hit in hits)
         {
             DitherWalls dwalls = null;

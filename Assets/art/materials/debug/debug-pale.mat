@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: debug-pale
-  m_Shader: {fileID: 4800000, guid: c735955809cfeea469553354d6659c70, type: 3}
+  m_Shader: {fileID: 4800000, guid: c39e845f1c19a6f4399336e57692ff5c, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -33,6 +33,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _DetailNormalMap:
         m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Dither:
+        m_Texture: {fileID: 2800000, guid: 73b7a7010693a184e812d659c908e241, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
