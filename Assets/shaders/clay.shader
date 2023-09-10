@@ -152,9 +152,9 @@ Shader "Custom/clay"
             float rough = tex2D(_Roughness, IN.worldPos.yz ) * xWeight;
             rough += tex2D(_Roughness, IN.worldPos.xz ) * yWeight;
             rough += tex2D(_Roughness, IN.worldPos.xy ) * zWeight ;
-            float3 normal = UnpackNormal(tex2D(_NormalMap, IN.worldPos.yz)) * xWeight;
-            normal += UnpackNormal(tex2D(_NormalMap, IN.worldPos.xz)) * yWeight;
-            normal += UnpackNormal(tex2D(_NormalMap, IN.worldPos.xy)) * zWeight;
+            float3 normal = UnpackNormal(tex2D(_NormalMap, IN.worldPos.yz*.4)) * xWeight;
+            normal += UnpackNormal(tex2D(_NormalMap, IN.worldPos.xz * .4)) * yWeight;
+            normal += UnpackNormal(tex2D(_NormalMap, IN.worldPos.xy * .4)) * zWeight;
 
             float roughness = rough ;
             o.Smoothness = 1.0- roughness;
