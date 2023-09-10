@@ -252,13 +252,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 360414858}
-  m_LocalRotation: {x: 0.3387394, y: -0.48770204, z: -0.14457723, w: 0.7915174}
+  m_LocalRotation: {x: 0.4078078, y: -0.82416606, z: 0.35984057, w: 0.15798068}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 23.279, y: -71.281, z: -37.506}
+  m_LocalEulerAnglesHint: {x: 46.219, y: -182.741, z: -53.823}
 --- !u!1 &496990645
 GameObject:
   m_ObjectHideFlags: 0
@@ -414,7 +414,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 603240393}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -14.58, y: -6.7865605, z: -10.6}
+  m_LocalPosition: {x: -14.58, y: -3.96, z: -10.6}
   m_LocalScale: {x: 10.677615, y: 18.979, z: 12.875292}
   m_Children: []
   m_Father: {fileID: 210502062}
@@ -436,9 +436,9 @@ MonoBehaviour:
   sceneRootName: Lvl1.5
   sceneRoot: {fileID: 0}
   giRoot: {fileID: 1156409751}
-  sunRotation: {x: 23.279383, y: 288.7193, z: 322.49393}
-  softSun: 0.42
-  skyContribution: 0.84
+  sunRotation: {x: 46.218887, y: 177.25906, z: 306.1766}
+  softSun: 0.85
+  skyContribution: 1.14
   segi: {fileID: 6611861}
 --- !u!65 &603240396
 BoxCollider:
@@ -535,7 +535,7 @@ PrefabInstance:
     - target: {fileID: 7163676271074353379, guid: 97f5ddc3453846747b18694848fb45b4, type: 3}
       propertyPath: followTransform
       value: 
-      objectReference: {fileID: 570192964}
+      objectReference: {fileID: 1156409751}
     - target: {fileID: 7163676271074353379, guid: 97f5ddc3453846747b18694848fb45b4, type: 3}
       propertyPath: secondaryBounceGain
       value: 0
@@ -854,7 +854,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1156409750}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.948381, y: 0.41343927, z: 4.423542}
+  m_LocalPosition: {x: -15.75, y: 0.41343927, z: -11.12}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 210502062}
