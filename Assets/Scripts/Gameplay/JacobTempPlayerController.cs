@@ -19,6 +19,7 @@ namespace Gameplay
         public float TurnRate = 15;
         public float MaxBodyLength = 50f;
         public int MaxBodyPoints => Mathf.FloorToInt(MaxBodyLength / SegmentLength) +1;
+        public MovementState GetMovementState => _movementState;
 
         [Header("Config")]
         public AnimationCurve InputDistanceMovementCurve;
@@ -27,6 +28,8 @@ namespace Gameplay
 
         private MovementState _movementState;
         private float _forcedRetractionDestination = -1;
+        private float _caffeineTime = 0f;
+
         private List<GameObject> BodyPoints = new List<GameObject>();
         private Rigidbody _rigidbody;
         private float _cachedBodyLength;
@@ -64,8 +67,15 @@ namespace Gameplay
                 _movementState = MovementState.IDLE;
             }
 
+
             DetectExtents();
             PickMovementState();
+            if (_caffeineTime > 0)
+            {
+                _caffeineTime -= Time.deltaTime;
+                //if(_movementState == MovementState.EXPANDING)
+                    //_rigidbody.velocity = new Vector3(_rigidbody.velocity.x, 1.5f, _rigidbody.velocity.z);
+            }
             ApplyMovementInput();
 
             PushXformToTube();
@@ -87,6 +97,10 @@ namespace Gameplay
 
 
             // TODO: Retraction cause enum, play sfx, play audio
+        }
+        public void Caffeinate(float duration)
+        {
+            _caffeineTime = Mathf.Max(duration, _caffeineTime);
         }
 
         private void DetectExtents()
@@ -133,7 +147,7 @@ namespace Gameplay
         }
         private void ApplyMovementInput()
         {
-            _rigidbody.useGravity = _movementState != MovementState.RETRACTING && BodyPoints.Count<MaxBodyPoints;
+            _rigidbody.useGravity = _movementState != MovementState.RETRACTING && BodyPoints.Count < MaxBodyPoints;// && _caffeineTime<=0;
 
             switch (_movementState)
             {
@@ -182,8 +196,8 @@ namespace Gameplay
                     break;
             }
 
-            // We don't jump
-            if (_rigidbody.velocity.y > 0 &&
+            // We don't jump, unless we're caffeinated
+            if (_rigidbody.velocity.y > 0 && _caffeineTime<=0 &&
                 Physics.OverlapBox(GroundedTrigger.bounds.center, GroundedTrigger.bounds.extents, transform.rotation, LayerMask.GetMask("Ground")).Length == 0)
             {
                 _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, 0, _rigidbody.velocity.z);
