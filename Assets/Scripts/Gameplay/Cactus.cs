@@ -2,6 +2,7 @@ using Gameplay;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Utility;
 
 namespace Gameplay
 {
@@ -17,6 +18,7 @@ namespace Gameplay
                 if (controller != null)
                 {
                     controller.ForceRetract(RetractDistance);
+                    AudioController.Play(AudioController.Instance.Assets.CatReacts.GetRandom(), false);
                 }
             }
         }
