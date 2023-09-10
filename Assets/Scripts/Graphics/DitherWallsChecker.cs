@@ -6,6 +6,7 @@ public class DitherWallsChecker : MonoBehaviour
 {
 
     Shader ditherShader;
+    public Texture ditherTexture;
     void Start ()
     {
         ditherShader = Shader.Find("Custom/DitheredAlpha");
@@ -24,21 +25,21 @@ public class DitherWallsChecker : MonoBehaviour
             MeshRenderer renderer;
             if(renderer=hit.collider.GetComponent<MeshRenderer>())
             {
-                if (hit.collider.tag != "DontDither")
+                if (hit.collider.tag != "DontDither" && hit.collider.tag != "Player")
                 {
                     if (!hit.collider.GetComponent<DitherWalls>())
                     {
                         foreach (var mat in renderer.materials)
                         {
                             mat.shader = ditherShader;
+                            mat.SetTexture("_Dither", ditherTexture);
                             hit.collider.gameObject.AddComponent<DitherWalls>();
                         }
                     }
                 }
             }
 
-            DitherWalls dwalls = null;
-            if (dwalls=hit.collider.GetComponent<DitherWalls>())
+            foreach(var dwalls in hit.collider.GetComponents<DitherWalls>())
             {
                 dwalls.shouldDither = true;
             }

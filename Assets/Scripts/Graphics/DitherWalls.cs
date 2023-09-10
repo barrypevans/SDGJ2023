@@ -7,7 +7,7 @@ public class DitherWalls : MonoBehaviour
 {
     public bool shouldDither;
     MeshRenderer meshRenderer;
-
+    public float debuga;
     private void Start()
     {
         meshRenderer = GetComponent<MeshRenderer>();
@@ -28,7 +28,8 @@ public class DitherWalls : MonoBehaviour
             {
                 c.a = 0.0f;
             }
-            meshRenderer.material.SetColor("_Color", c);
+            foreach(var mat in meshRenderer.materials)
+                mat.SetColor("_Color", c);
         }
         else
         {
@@ -38,8 +39,9 @@ public class DitherWalls : MonoBehaviour
             {
                 c.a = 1;
             }
-            meshRenderer.material.SetColor("_Color", c);
-
+            foreach (var mat in meshRenderer.materials)
+                mat.SetColor("_Color", c);
         }
+        debuga = meshRenderer.material.GetColor("_Color").a;
     }
 }

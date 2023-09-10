@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 namespace Gameplay
 {
-    [RequireComponent(typeof(TubeMesh))]
+    //[RequireComponent(typeof(TubeMesh))]
     public class JacobTempPlayerController : MonoBehaviour
     {
         private const float SegmentLength = 0.1f;
@@ -41,7 +41,8 @@ namespace Gameplay
         void Start()
         {
             _rigidbody = GetComponent<Rigidbody>();
-            _tubeMeshObj = new GameObject();
+            _tubeMeshObj = new GameObject("TubeMesh");
+            _tubeMeshObj.tag = "Player";
             _tubeMesh = _tubeMeshObj.AddComponent<TubeMesh>();
             _tubeMeshObj.transform.position = Vector3.zero;
             _tubeMeshObj.GetComponent<MeshRenderer>().material = BodyMaterial;
