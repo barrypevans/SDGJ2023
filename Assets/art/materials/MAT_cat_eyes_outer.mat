@@ -8,13 +8,14 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: MAT_cat_eyes_outer
-  m_Shader: {fileID: 4800000, guid: 05626ff2b21fbc740ac6a9a263dc597f, type: 3}
-  m_ShaderKeywords: 
+  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: _ALPHAPREMULTIPLY_ON _NORMALMAP
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
+  m_CustomRenderQueue: 3000
+  stringTagMap:
+    RenderType: Transparent
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
@@ -60,16 +61,16 @@ Material:
     - _BumpScale: 0.05
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
-    - _DissortAmt: 0.094
-    - _DstBlend: 0
+    - _DissortAmt: 0.056
+    - _DstBlend: 10
     - _FBias: 0
-    - _FPower: 6.1
-    - _FScale: 0.287
+    - _FPower: 6.58
+    - _FScale: 0.304
     - _GlossMapScale: 1
-    - _Glossiness: 0.864
+    - _Glossiness: 0.938
     - _GlossyReflections: 1
     - _Metallic: 0
-    - _Mode: 0
+    - _Mode: 3
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _SmoothnessTextureChannel: 0
@@ -78,10 +79,10 @@ Material:
     - _SpeedY: 0.5
     - _SrcBlend: 1
     - _UVSec: 0
-    - _ZWrite: 1
+    - _ZWrite: 0
     m_Colors:
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _DarkColor: {r: 1, g: 1, b: 1, a: 0}
+    - _Color: {r: 1, g: 1, b: 1, a: 0}
+    - _DarkColor: {r: 1, g: 0.8443396, b: 0.8443396, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _LitColor: {r: 0.8207547, g: 0.66202384, b: 0.66202384, a: 1}
+    - _LitColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []

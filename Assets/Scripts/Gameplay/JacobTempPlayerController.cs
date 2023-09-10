@@ -14,6 +14,8 @@ namespace Gameplay
         public BoxCollider GroundedTrigger;
         public Material BodyMaterial;
 
+        public Transform bodyStart;
+
         public float TurnRate = 15;
         public float MaxBodyLength = 50f;
         public int MaxBodyPoints => Mathf.FloorToInt(MaxBodyLength / SegmentLength) +1;
