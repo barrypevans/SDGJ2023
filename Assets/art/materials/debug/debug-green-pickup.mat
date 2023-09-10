@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: debug-green-pickup
-  m_Shader: {fileID: 4800000, guid: c39e845f1c19a6f4399336e57692ff5c, type: 3}
+  m_Shader: {fileID: 4800000, guid: 762dc86397237d047b5a5444e7c675c8, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -67,7 +67,7 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _GlossMapScale: 1
-    - _Glossiness: 0.5
+    - _Glossiness: 0.63
     - _GlossyReflections: 1
     - _GreenThreshold: 0.6
     - _Metallic: 0

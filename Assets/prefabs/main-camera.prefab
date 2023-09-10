@@ -176,7 +176,7 @@ MonoBehaviour:
   giGain: 0.31
   secondaryBounceGain: 0
   softSunlight: 1.32
-  skyIntensity: 2.47
+  skyIntensity: 0
   doReflections: 0
   reflectionSteps: 98
   reflectionOcclusionPower: 4
@@ -206,7 +206,7 @@ MonoBehaviour:
     m_Bits: 2147483647
   stopNaNPropagation: 1
   finalBlitToCameraTarget: 0
-  antialiasingMode: 2
+  antialiasingMode: 3
   temporalAntialiasing:
     jitterSpread: 0.75
     sharpness: 0.25

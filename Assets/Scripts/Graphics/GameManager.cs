@@ -6,15 +6,24 @@ public class GameManager : MonoSingleton<GameManager>
 {
     Coroutine m_clayUpdateRoutine;
 
+    //string leveslToLoad[3] = {""};
+
     void Start()
     {
         m_clayUpdateRoutine = StartCoroutine(Co_ClayUpdate());
+        LoadLevels();
     }
 
     void Update()
     {
         
     }
+
+    void LoadLevels()
+    {
+
+    }
+
 
     IEnumerator Co_ClayUpdate()
     {
