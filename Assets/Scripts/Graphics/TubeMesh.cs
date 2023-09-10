@@ -8,7 +8,7 @@ using UnityEngine;
 public class TubeMesh : MonoBehaviour
 {
     readonly int kRingDivisions = 12;
-    readonly float kWidth = .5f;
+    readonly float kWidth = .45f;
     readonly int kNumNodesToUpdate = 5;
 
     MeshFilter m_meshFilter;

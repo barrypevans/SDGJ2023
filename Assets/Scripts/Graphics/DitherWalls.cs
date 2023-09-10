@@ -34,7 +34,7 @@ public class DitherWalls : MonoBehaviour
         {
             Color c = meshRenderer.material.color;
             c.a += Time.deltaTime * 10;
-            if (c.a >1)
+            if (c.a > 1)
             {
                 c.a = 1;
             }

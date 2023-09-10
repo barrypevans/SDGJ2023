@@ -1,4 +1,4 @@
-Shader "Custom/clay"
+Shader "Custom/clay-generic"
 {
     Properties
     {
@@ -7,12 +7,18 @@ Shader "Custom/clay"
         _Glossiness ("Smoothness", Range(0,1)) = 0.5
         _Metallic ("Metallic", Range(0,1)) = 0.0
 
-            _GreenThreshold("GreenThreshold",  Range(0,1)) = .6
-            _BlueThreshold("BlueThreshold",  Range(0,1)) = .3
-            _RedThreshold("redThreshold",  Range(0,1)) = .3
     }
     SubShader
     {
+
+
+        Stencil {
+             Ref 1         //0-255
+             Comp Always     //default:always
+            ZFail replace
+        }
+
+
         Tags { "RenderType"="Opaque" }
         LOD 200
         Cull Off
@@ -111,24 +117,12 @@ Shader "Custom/clay"
             v.vertex.xyz += v.normal * simplex3d(v.vertex+floor(_Time.y*1000/ fraction)* fraction)*.05;
         }
 
-        float _GreenThreshold;
-        float _BlueThreshold;
-        float _RedThreshold;
 
         void surf (Input IN, inout SurfaceOutputStandard o)
         {
-            // Albedo comes from a texture tinted by color
-            float3 noise = float3(abs(simplex3d(IN.worldPos)), abs(simplex3d(IN.worldPos+12)), abs(simplex3d(IN.worldPos+90)));
 
-            float4 noiseColor = float4(1, 0, 0, 1);
-            if (noise.x > _GreenThreshold)
-                noiseColor = float4(0, 1, 0, 1);
-            if(noise.y > _BlueThreshold)
-                noiseColor = float4(0, 0, 1, 1);
-            if (noise.z > _RedThreshold)
-                noiseColor = float4(1, 0, 0, 1);
 
-            fixed4 c = tex2D (_MainTex, IN.uv_MainTex) * _Color * noiseColor;
+            fixed4 c = tex2D (_MainTex, IN.uv_MainTex) * _Color ;
             o.Albedo = c.rgb;
             // Metallic and smoothness come from slider variables
             o.Metallic = _Metallic;

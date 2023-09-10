@@ -19,11 +19,14 @@ namespace Gameplay
             {
                 Vector3 delta = Input.mousePosition - lastmousepos;
                 float direction = delta.x;
+               
 
                 if (direction != 0)
                 {
                     transform.Rotate(Vector3.up, direction*RotationSpeed);
                 }
+
+
             }
             lastmousepos = Input.mousePosition;
         }
