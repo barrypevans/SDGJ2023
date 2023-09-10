@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoSingleton<GameManager>
 {
     Coroutine m_clayUpdateRoutine;
 
-    //string leveslToLoad[3] = {""};
+    string[] levelsToLoad = { "level2" , "level1.5", "levelHallway", "JacobTestScene"};
 
     void Start()
     {
@@ -21,9 +22,11 @@ public class GameManager : MonoSingleton<GameManager>
 
     void LoadLevels()
     {
-
+        foreach (string level in levelsToLoad)
+        {
+            SceneManager.LoadScene(level, LoadSceneMode.Additive);
+        }
     }
-
 
     IEnumerator Co_ClayUpdate()
     {
