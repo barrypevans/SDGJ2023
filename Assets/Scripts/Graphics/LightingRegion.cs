@@ -25,15 +25,25 @@ public class LightingRegion : MonoBehaviour
     }
 
     private List<DitherWalls> m_ditherables;
+    public Transform sunlight;
+    public string sceneRootName;
     public GameObject sceneRoot;
     public Transform giRoot;
     public SEGI segi;
     private void Awake()
     {
+        StartCoroutine(Co_SetupSecenRoot());
+        
         m_ditherables = new List<DitherWalls>();
 
-        GatherDitherables(m_ditherables, sceneRoot.transform);
+        //GatherDitherables(m_ditherables, sceneRoot.transform);
         segi = GameObject.FindObjectOfType<SEGI>();
+    }
+
+    IEnumerator Co_SetupSecenRoot()
+    {
+        yield return new WaitForEndOfFrame();
+        sceneRoot = GameObject.Find(sceneRootName);
     }
 
     private void GatherDitherables(List<DitherWalls> list, Transform t)
@@ -54,12 +64,7 @@ public class LightingRegion : MonoBehaviour
 
     private void Update()
     {
-        if(!isActive)
-        {
-            foreach(var ditherable in m_ditherables)
-            {
-                ditherable.shouldDither = true;
-            }
-        }
+        if(sceneRoot)
+            sceneRoot.SetActive(isActive);  
     }
 }
