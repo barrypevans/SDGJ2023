@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9baa822bb9273340b697a65b774084b, type: 3}
+  m_Name: MasterAudioAssets
+  m_EditorClassIdentifier: 
+  Music:
+  - {fileID: 8300000, guid: dc29c7341da18484e87df20bc1730dad, type: 3}
+  - {fileID: 8300000, guid: 97d00de0f6c649240be88baa134052d8, type: 3}
+  - {fileID: 8300000, guid: f6f03b4cd365bf546bf83469b2161d38, type: 3}
+  - {fileID: 8300000, guid: dc68bbdfeccd4af4e9c8f23abc875411, type: 3}
+  CatChirps: []
+  CatReacts:
+  - {fileID: 8300000, guid: a4529802fb6701b45b2c9dfaedaf24b8, type: 3}
+  - {fileID: 8300000, guid: e289caf68d6fdd6438291645eefd7bd9, type: 3}
+  - {fileID: 8300000, guid: aa0f63cf95b448e478bcb52603753895, type: 3}
+  - {fileID: 8300000, guid: 02d736ec586aeb240ac9891817044c57, type: 3}
+  ClayPickups:
+  - {fileID: 8300000, guid: 9718e5a97daf66f4a9ca19c8278de38d, type: 3}
+  StretchLoop: {fileID: 0}
+  Dialogue:
+  - {fileID: 8300000, guid: 5b58f6920fb97ab42bd4e206efa086be, type: 3}
+  - {fileID: 8300000, guid: b41e7277290cf2e43ba8e6f28c3e6339, type: 3}
+  - {fileID: 8300000, guid: 6f702fb35d877894c85c1a3d76b60c07, type: 3}
+  - {fileID: 8300000, guid: b2e98508d83e76348b51dbbb92b8e01c, type: 3}
+  - {fileID: 8300000, guid: 0cb64523443423243853aae5b2b255ad, type: 3}

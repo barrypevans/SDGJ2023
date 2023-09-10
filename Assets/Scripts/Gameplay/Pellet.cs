@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Utility;
 
 namespace Gameplay
 {
@@ -34,6 +35,14 @@ namespace Gameplay
                 {
                     controller.MaxBodyLength += AddedLength;
                     Object.Destroy(gameObject);
+
+                    if (controller.MaxBodyLength > 60) //mid bathroom
+                        AudioController.Instance.TriggerDialogue(3);
+                    else if (controller.MaxBodyLength > 27) //mid bedroom
+                        AudioController.Instance.TriggerDialogue(1);
+                    else if (controller.MaxBodyLength > 5) // first thing
+                        AudioController.Instance.TriggerDialogue(0);
+                    // Lvl 1 end handled by lvl 1 end script
                 }
             }
         }
