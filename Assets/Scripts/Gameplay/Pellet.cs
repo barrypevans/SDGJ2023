@@ -43,6 +43,8 @@ namespace Gameplay
                     else if (controller.MaxBodyLength > 5) // first thing
                         AudioController.Instance.TriggerDialogue(0);
                     // Lvl 1 end handled by lvl 1 end script
+
+                    AudioController.Play(AudioController.Instance.Assets.ClayPickups.GetRandom(), false);
                 }
             }
         }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Utility;
 
 namespace Gameplay
 {
@@ -36,6 +37,8 @@ namespace Gameplay
         private TubeMesh _tubeMesh;
         private GameObject _tubeMeshObj;
 
+        private AudioSource _moveSound;
+
         bool _xformPushedToTube;
         
         void Start()
@@ -49,6 +52,9 @@ namespace Gameplay
             BodyPoints.Add(Object.Instantiate(BodyPointPrefab, transform.position, transform.rotation));
             _tubeMesh.PushNode(BodyPoints[BodyPoints.Count - 1].transform);
             _xformPushedToTube = false;
+
+            _moveSound = AudioController.Play(AudioController.Instance.Assets.StretchLoop, true);
+            _moveSound.volume = 0f;
         }
 
         void Update()
@@ -75,6 +81,8 @@ namespace Gameplay
 
             DetectExtents();
             PickMovementState();
+            _moveSound.volume = Mathf.Lerp(_moveSound.volume,(_movementState == MovementState.IDLE)?0f:0.4f, Time.deltaTime*4f);
+
             if (_caffeineTime > 0)
             {
                 _caffeineTime -= Time.deltaTime;

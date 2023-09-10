@@ -18,4 +18,5 @@ public class AudioAssetManager : ScriptableObject
 
     public AudioClip[] Dialogue;
 
+    public AudioClip DoorOpen;
 }
