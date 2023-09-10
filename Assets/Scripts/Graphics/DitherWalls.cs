@@ -26,7 +26,7 @@ public class DitherWalls : MonoBehaviour
             c.a -= Time.deltaTime * 10;
             if(c.a <0)
             {
-                c.a = 0;
+                c.a = 0.0f;
             }
             meshRenderer.material.SetColor("_Color", c);
         }
