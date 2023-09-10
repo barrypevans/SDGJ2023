@@ -77,7 +77,14 @@ namespace Gameplay
             if (distance < 0)
                 _forcedRetractionDestination = 0;
             else
-                _forcedRetractionDestination = Mathf.Max(0,_cachedBodyLength-distance);
+            {
+                float newdestination = Mathf.Max(0, _cachedBodyLength - distance);
+                if (_forcedRetractionDestination > 0)
+                    _forcedRetractionDestination = Mathf.Min(_forcedRetractionDestination, newdestination);
+                else
+                    _forcedRetractionDestination = newdestination;
+            }
+
 
             // TODO: Retraction cause enum, play sfx, play audio
         }
@@ -166,7 +173,8 @@ namespace Gameplay
 
                     for (int i = BodyPoints.Count - 1; i > newFinalPoint; i--)
                     {
-                        Object.Destroy(BodyPoints[i]);
+                        BodyPoints[i].transform.position = Vector3.down * 1000f;// Dopey thing to detect exit trigger events?
+                        Object.Destroy(BodyPoints[i], 0.1f);
                         BodyPoints.RemoveAt(i);
                         _tubeMesh.PopNode();
 
