@@ -8947,21 +8947,29 @@ PrefabInstance:
       propertyPath: secondaryOcclusionStrength
       value: 1.47
       objectReference: {fileID: 0}
+    - target: {fileID: 7163676271183596212, guid: 97f5ddc3453846747b18694848fb45b4, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 570908450}
+    - target: {fileID: 7163676271183596212, guid: 97f5ddc3453846747b18694848fb45b4, type: 3}
+      propertyPath: TrackPlayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7363467952429654448, guid: 97f5ddc3453846747b18694848fb45b4, type: 3}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7363467952429654448, guid: 97f5ddc3453846747b18694848fb45b4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 8.624994
       objectReference: {fileID: 0}
     - target: {fileID: 7363467952429654448, guid: 97f5ddc3453846747b18694848fb45b4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 3.75
       objectReference: {fileID: 0}
     - target: {fileID: 7363467952429654448, guid: 97f5ddc3453846747b18694848fb45b4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -8.000007
       objectReference: {fileID: 0}
     - target: {fileID: 7363467952429654448, guid: 97f5ddc3453846747b18694848fb45b4, type: 3}
       propertyPath: m_LocalRotation.w

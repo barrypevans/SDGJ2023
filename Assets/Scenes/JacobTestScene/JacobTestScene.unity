@@ -13320,6 +13320,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1678966212}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1696867025 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3005397065586576102, guid: 119d85a46ee416e43857f4a086a4409d, type: 3}
+  m_PrefabInstance: {fileID: 998014805}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1710111825
 GameObject:
   m_ObjectHideFlags: 0
@@ -16560,10 +16565,14 @@ PrefabInstance:
     - target: {fileID: 1712458800, guid: 97f5ddc3453846747b18694848fb45b4, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1696867025}
     - target: {fileID: 5295237728970997818, guid: 97f5ddc3453846747b18694848fb45b4, type: 3}
       propertyPath: m_Name
       value: main-camera
+      objectReference: {fileID: 0}
+    - target: {fileID: 7163676271074353377, guid: 97f5ddc3453846747b18694848fb45b4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 18.125
       objectReference: {fileID: 0}
     - target: {fileID: 7163676271074353379, guid: 97f5ddc3453846747b18694848fb45b4, type: 3}
       propertyPath: sun
@@ -16633,21 +16642,29 @@ PrefabInstance:
       propertyPath: visualizeSunDepthTexture
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7163676271183596212, guid: 97f5ddc3453846747b18694848fb45b4, type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 1696867025}
+    - target: {fileID: 7163676271183596212, guid: 97f5ddc3453846747b18694848fb45b4, type: 3}
+      propertyPath: TrackPlayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7363467952429654448, guid: 97f5ddc3453846747b18694848fb45b4, type: 3}
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 7363467952429654448, guid: 97f5ddc3453846747b18694848fb45b4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 8.494594
       objectReference: {fileID: 0}
     - target: {fileID: 7363467952429654448, guid: 97f5ddc3453846747b18694848fb45b4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 3.6875
       objectReference: {fileID: 0}
     - target: {fileID: 7363467952429654448, guid: 97f5ddc3453846747b18694848fb45b4, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -8.16836
       objectReference: {fileID: 0}
     - target: {fileID: 7363467952429654448, guid: 97f5ddc3453846747b18694848fb45b4, type: 3}
       propertyPath: m_LocalRotation.w
