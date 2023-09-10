@@ -1,98 +1,296 @@
 fileFormatVersion: 2
 guid: fcb829053606044c99711b9752c46ef7
-timeCreated: 1498145115
-licenseType: Store
 ModelImporter:
-  serializedVersion: 19
-  fileIDToRecycleName:
-    100000: //RootNode
-    100002: RECT_Flipper
-    100004: RECT_Grater
-    100006: RECT_Grater_MeshPart0
-    100008: RECT_Grater_MeshPart1
-    100010: RECT_Ladle
-    100012: RECT_Lrg Handle
-    100014: RECT_Masher
-    100016: RECT_Pan
-    100018: RECT_Pepper Shaker
-    100020: RECT_Pot
-    100022: RECT_Salt Shaker
-    100024: RECT_Scoop
-    100026: RECT_Skillet
-    100028: RECT_Sml Handle_Curved
-    100030: RECT_Sml Handle_Long
-    100032: RECT_Sml Handle_Short
-    100034: RECT_Spatula
-    400000: //RootNode
-    400002: RECT_Flipper
-    400004: RECT_Grater
-    400006: RECT_Grater_MeshPart0
-    400008: RECT_Grater_MeshPart1
-    400010: RECT_Ladle
-    400012: RECT_Lrg Handle
-    400014: RECT_Masher
-    400016: RECT_Pan
-    400018: RECT_Pepper Shaker
-    400020: RECT_Pot
-    400022: RECT_Salt Shaker
-    400024: RECT_Scoop
-    400026: RECT_Skillet
-    400028: RECT_Sml Handle_Curved
-    400030: RECT_Sml Handle_Long
-    400032: RECT_Sml Handle_Short
-    400034: RECT_Spatula
-    2300000: RECT_Flipper
-    2300002: RECT_Grater_MeshPart0
-    2300004: RECT_Grater_MeshPart1
-    2300006: RECT_Ladle
-    2300008: RECT_Lrg Handle
-    2300010: RECT_Masher
-    2300012: RECT_Pan
-    2300014: RECT_Pepper Shaker
-    2300016: RECT_Pot
-    2300018: RECT_Salt Shaker
-    2300020: RECT_Scoop
-    2300022: RECT_Skillet
-    2300024: RECT_Sml Handle_Curved
-    2300026: RECT_Sml Handle_Long
-    2300028: RECT_Sml Handle_Short
-    2300030: RECT_Spatula
-    3300000: RECT_Flipper
-    3300002: RECT_Grater_MeshPart0
-    3300004: RECT_Grater_MeshPart1
-    3300006: RECT_Ladle
-    3300008: RECT_Lrg Handle
-    3300010: RECT_Masher
-    3300012: RECT_Pan
-    3300014: RECT_Pepper Shaker
-    3300016: RECT_Pot
-    3300018: RECT_Salt Shaker
-    3300020: RECT_Scoop
-    3300022: RECT_Skillet
-    3300024: RECT_Sml Handle_Curved
-    3300026: RECT_Sml Handle_Long
-    3300028: RECT_Sml Handle_Short
-    3300030: RECT_Spatula
-    4300000: RECT_Lrg Handle
-    4300002: RECT_Grater_MeshPart0
-    4300004: RECT_Grater_MeshPart1
-    4300006: RECT_Masher
-    4300008: RECT_Ladle
-    4300010: RECT_Scoop
-    4300012: RECT_Spatula
-    4300014: RECT_Salt Shaker
-    4300016: RECT_Sml Handle_Curved
-    4300018: RECT_Sml Handle_Long
-    4300020: RECT_Pan
-    4300022: RECT_Sml Handle_Short
-    4300024: RECT_Skillet
-    4300026: RECT_Pot
-    4300028: RECT_Pepper Shaker
-    4300030: RECT_Flipper
+  serializedVersion: 21100
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: //RootNode
+  - first:
+      1: 100002
+    second: RECT_Flipper
+  - first:
+      1: 100004
+    second: RECT_Grater
+  - first:
+      1: 100006
+    second: RECT_Grater_MeshPart0
+  - first:
+      1: 100008
+    second: RECT_Grater_MeshPart1
+  - first:
+      1: 100010
+    second: RECT_Ladle
+  - first:
+      1: 100012
+    second: RECT_Lrg Handle
+  - first:
+      1: 100014
+    second: RECT_Masher
+  - first:
+      1: 100016
+    second: RECT_Pan
+  - first:
+      1: 100018
+    second: RECT_Pepper Shaker
+  - first:
+      1: 100020
+    second: RECT_Pot
+  - first:
+      1: 100022
+    second: RECT_Salt Shaker
+  - first:
+      1: 100024
+    second: RECT_Scoop
+  - first:
+      1: 100026
+    second: RECT_Skillet
+  - first:
+      1: 100028
+    second: RECT_Sml Handle_Curved
+  - first:
+      1: 100030
+    second: RECT_Sml Handle_Long
+  - first:
+      1: 100032
+    second: RECT_Sml Handle_Short
+  - first:
+      1: 100034
+    second: RECT_Spatula
+  - first:
+      4: 400000
+    second: //RootNode
+  - first:
+      4: 400002
+    second: RECT_Flipper
+  - first:
+      4: 400004
+    second: RECT_Grater
+  - first:
+      4: 400006
+    second: RECT_Grater_MeshPart0
+  - first:
+      4: 400008
+    second: RECT_Grater_MeshPart1
+  - first:
+      4: 400010
+    second: RECT_Ladle
+  - first:
+      4: 400012
+    second: RECT_Lrg Handle
+  - first:
+      4: 400014
+    second: RECT_Masher
+  - first:
+      4: 400016
+    second: RECT_Pan
+  - first:
+      4: 400018
+    second: RECT_Pepper Shaker
+  - first:
+      4: 400020
+    second: RECT_Pot
+  - first:
+      4: 400022
+    second: RECT_Salt Shaker
+  - first:
+      4: 400024
+    second: RECT_Scoop
+  - first:
+      4: 400026
+    second: RECT_Skillet
+  - first:
+      4: 400028
+    second: RECT_Sml Handle_Curved
+  - first:
+      4: 400030
+    second: RECT_Sml Handle_Long
+  - first:
+      4: 400032
+    second: RECT_Sml Handle_Short
+  - first:
+      4: 400034
+    second: RECT_Spatula
+  - first:
+      23: 2300000
+    second: RECT_Flipper
+  - first:
+      23: 2300002
+    second: RECT_Grater_MeshPart0
+  - first:
+      23: 2300004
+    second: RECT_Grater_MeshPart1
+  - first:
+      23: 2300006
+    second: RECT_Ladle
+  - first:
+      23: 2300008
+    second: RECT_Lrg Handle
+  - first:
+      23: 2300010
+    second: RECT_Masher
+  - first:
+      23: 2300012
+    second: RECT_Pan
+  - first:
+      23: 2300014
+    second: RECT_Pepper Shaker
+  - first:
+      23: 2300016
+    second: RECT_Pot
+  - first:
+      23: 2300018
+    second: RECT_Salt Shaker
+  - first:
+      23: 2300020
+    second: RECT_Scoop
+  - first:
+      23: 2300022
+    second: RECT_Skillet
+  - first:
+      23: 2300024
+    second: RECT_Sml Handle_Curved
+  - first:
+      23: 2300026
+    second: RECT_Sml Handle_Long
+  - first:
+      23: 2300028
+    second: RECT_Sml Handle_Short
+  - first:
+      23: 2300030
+    second: RECT_Spatula
+  - first:
+      33: 3300000
+    second: RECT_Flipper
+  - first:
+      33: 3300002
+    second: RECT_Grater_MeshPart0
+  - first:
+      33: 3300004
+    second: RECT_Grater_MeshPart1
+  - first:
+      33: 3300006
+    second: RECT_Ladle
+  - first:
+      33: 3300008
+    second: RECT_Lrg Handle
+  - first:
+      33: 3300010
+    second: RECT_Masher
+  - first:
+      33: 3300012
+    second: RECT_Pan
+  - first:
+      33: 3300014
+    second: RECT_Pepper Shaker
+  - first:
+      33: 3300016
+    second: RECT_Pot
+  - first:
+      33: 3300018
+    second: RECT_Salt Shaker
+  - first:
+      33: 3300020
+    second: RECT_Scoop
+  - first:
+      33: 3300022
+    second: RECT_Skillet
+  - first:
+      33: 3300024
+    second: RECT_Sml Handle_Curved
+  - first:
+      33: 3300026
+    second: RECT_Sml Handle_Long
+  - first:
+      33: 3300028
+    second: RECT_Sml Handle_Short
+  - first:
+      33: 3300030
+    second: RECT_Spatula
+  - first:
+      43: 4300000
+    second: RECT_Lrg Handle
+  - first:
+      43: 4300002
+    second: RECT_Grater_MeshPart0
+  - first:
+      43: 4300004
+    second: RECT_Grater_MeshPart1
+  - first:
+      43: 4300006
+    second: RECT_Masher
+  - first:
+      43: 4300008
+    second: RECT_Ladle
+  - first:
+      43: 4300010
+    second: RECT_Scoop
+  - first:
+      43: 4300012
+    second: RECT_Spatula
+  - first:
+      43: 4300014
+    second: RECT_Salt Shaker
+  - first:
+      43: 4300016
+    second: RECT_Sml Handle_Curved
+  - first:
+      43: 4300018
+    second: RECT_Sml Handle_Long
+  - first:
+      43: 4300020
+    second: RECT_Pan
+  - first:
+      43: 4300022
+    second: RECT_Sml Handle_Short
+  - first:
+      43: 4300024
+    second: RECT_Skillet
+  - first:
+      43: 4300026
+    second: RECT_Pot
+  - first:
+      43: 4300028
+    second: RECT_Pepper Shaker
+  - first:
+      43: 4300030
+    second: RECT_Flipper
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GL_Kristall.001
+    second: {fileID: 2100000, guid: 62d4f909af80a1d41a3551b83771d4d8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.001
+    second: {fileID: 2100000, guid: 686e3e97e7c3df742865454966b4e4ba, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.003
+    second: {fileID: 2100000, guid: 9a401e34f0d6f6746a13c5c266d4135d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: RECT_Black
+    second: {fileID: 2100000, guid: 2a3041121db07d14c8421f0670d5c936, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: RECT_Plastic
+    second: {fileID: 2100000, guid: caaa8bcbd27259544b89feee1748cf0e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: RECT_Steel
+    second: {fileID: 2100000, guid: 522d4ca2c34810c459dc9995387a2225, type: 2}
   materials:
-    importMaterials: 1
+    materialImportMode: 2
     materialName: 0
     materialSearch: 1
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -105,12 +303,15 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
+    extraUserProperties: []
     clipAnimations: []
     isReadable: 1
   meshes:
@@ -118,26 +319,45 @@ ModelImporter:
     globalScale: 3
     meshCompression: 0
     addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 0
     importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 0
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
+    normalCalculationMode: 0
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
   importAnimation: 1
-  copyAvatar: 0
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5
@@ -147,14 +367,17 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 3
     rootMotionBoneName: 
-    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 0
   humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
   additionalBone: 0
   userData: 
   assetBundleName: 
