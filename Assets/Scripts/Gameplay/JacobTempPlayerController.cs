@@ -196,12 +196,13 @@ namespace Gameplay
                     break;
             }
 
+            /*
             // We don't jump, unless we're caffeinated
             if (_rigidbody.velocity.y > 0 && _caffeineTime<=0 &&
                 Physics.OverlapBox(GroundedTrigger.bounds.center, GroundedTrigger.bounds.extents, transform.rotation, LayerMask.GetMask("Ground")).Length == 0)
             {
                 _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, 0, _rigidbody.velocity.z);
-            }
+            }*/
 
         }
 
