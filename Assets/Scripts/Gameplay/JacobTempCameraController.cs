@@ -7,11 +7,16 @@ namespace Gameplay
     public class JacobTempCameraController : MonoBehaviour
     {
         public float RotationSpeed = 2f;
+        public Transform Player;
+        public bool TrackPlayer = false;
         Vector3 lastmousepos;
 
         private void Start()
         {
             lastmousepos = Input.mousePosition;
+
+            if (TrackPlayer)
+                transform.position = Player.position;
         }
         void Update()
         {
@@ -29,6 +34,9 @@ namespace Gameplay
 
             }
             lastmousepos = Input.mousePosition;
+
+            if (TrackPlayer)
+                transform.position = Vector3.Lerp(transform.position, Player.position, Time.deltaTime * 4f);
         }
     }
 }

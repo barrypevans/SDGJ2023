@@ -3,8 +3,8 @@ Shader "Custom/clay"
     Properties
     {
         _Color ("Color", Color) = (1,1,1,1)
-        _MainTex ("Albedo (RGB)", 2D) = "white" {}
-        _Glossiness ("Smoothness", Range(0,1)) = 0.5
+        _MainTex("Albedo (RGB)", 2D) = "white" {}
+        _Roughness("Roughness (RGB)", 2D) = "white" {}
         _Metallic ("Metallic", Range(0,1)) = 0.0
 
             _GreenThreshold("GreenThreshold",  Range(0,1)) = .6
@@ -114,7 +114,7 @@ Shader "Custom/clay"
         float _GreenThreshold;
         float _BlueThreshold;
         float _RedThreshold;
-
+        sampler2D _Roughness;
         void surf (Input IN, inout SurfaceOutputStandard o)
         {
             // Albedo comes from a texture tinted by color
@@ -132,7 +132,9 @@ Shader "Custom/clay"
             o.Albedo = c.rgb;
             // Metallic and smoothness come from slider variables
             o.Metallic = _Metallic;
-            o.Smoothness = _Glossiness;
+            
+            float roughness = tex2D(_Roughness, IN.uv_MainTex);
+            o.Smoothness = 1.0- roughness;
             o.Alpha = c.a;
         }
         ENDCG
