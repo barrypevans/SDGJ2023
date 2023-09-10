@@ -7,6 +7,7 @@ namespace Gameplay
 {
     public class Cactus : MonoBehaviour
     {
+        public float RetractDistance = 2f;
         private void OnCollisionEnter(Collision collision)
         {
 
@@ -15,7 +16,7 @@ namespace Gameplay
                 JacobTempPlayerController controller = collision.gameObject.GetComponent<JacobTempPlayerController>();
                 if (controller != null)
                 {
-                    controller.ForceRetract(2f);
+                    controller.ForceRetract(RetractDistance);
                 }
             }
         }

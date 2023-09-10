@@ -5,11 +5,16 @@ Shader "Custom/clay"
         _Color ("Color", Color) = (1,1,1,1)
         _MainTex("Albedo (RGB)", 2D) = "white" {}
         _Roughness("Roughness (RGB)", 2D) = "white" {}
+        _NormalMap("NormalMap", 2D) = "white" {}
         _Metallic ("Metallic", Range(0,1)) = 0.0
 
-            _GreenThreshold("GreenThreshold",  Range(0,1)) = .6
-            _BlueThreshold("BlueThreshold",  Range(0,1)) = .3
-            _RedThreshold("redThreshold",  Range(0,1)) = .3
+
+        _Color1("Color1", Color) = (1,1,1,1)
+        _Color2("Color2", Color) = (1,1,1,1)
+        _Color3("Color3", Color) = (1,1,1,1)
+        _GreenThreshold("GreenThreshold",  Range(0,1)) = .6
+        _BlueThreshold("BlueThreshold",  Range(0,1)) = .3
+        _RedThreshold("redThreshold",  Range(0,1)) = .3
     }
     SubShader
     {
@@ -29,11 +34,16 @@ Shader "Custom/clay"
         {
             float2 uv_MainTex;
             float3 worldPos;
+            float3 worldNormal;
+            INTERNAL_DATA
         };
 
         half _Glossiness;
         half _Metallic;
         fixed4 _Color;
+        fixed4 _Color1;
+        fixed4 _Color2;
+        fixed4 _Color3;
 
         // Add instancing support for this shader. You need to check 'Enable Instancing' on materials that use the shader.
         // See https://docs.unity3d.com/Manual/GPUInstancing.html for more information about instancing.
@@ -114,27 +124,41 @@ Shader "Custom/clay"
         float _GreenThreshold;
         float _BlueThreshold;
         float _RedThreshold;
+        sampler2D _NormalMap;
         sampler2D _Roughness;
         void surf (Input IN, inout SurfaceOutputStandard o)
         {
             // Albedo comes from a texture tinted by color
             float3 noise = float3(abs(simplex3d(IN.worldPos)), abs(simplex3d(IN.worldPos+12)), abs(simplex3d(IN.worldPos+90)));
 
-            float4 noiseColor = float4(1, 0, 0, 1);
+            float4 noiseColor = _Color3;
             if (noise.x > _GreenThreshold)
-                noiseColor = float4(0, 1, 0, 1);
+                noiseColor = _Color1;
             if(noise.y > _BlueThreshold)
-                noiseColor = float4(0, 0, 1, 1);
+                noiseColor = _Color2;
             if (noise.z > _RedThreshold)
-                noiseColor = float4(1, 0, 0, 1);
+                noiseColor = _Color3;
 
-            fixed4 c = tex2D (_MainTex, IN.uv_MainTex) * _Color * noiseColor;
+            //fixed4 c = tex2D (_MainTex, IN.uv_MainTex) * _Color * noiseColor;
+            fixed4 c =  _Color * noiseColor;
             o.Albedo = c.rgb;
             // Metallic and smoothness come from slider variables
             o.Metallic = _Metallic;
             
-            float roughness = tex2D(_Roughness, IN.uv_MainTex);
+            float3 worldNormal = WorldNormalVector(IN, o.Normal);
+            float xWeight = abs(dot(worldNormal, float3(1, 0, 0)));
+            float yWeight = abs(dot(worldNormal, float3(0, 1, 0)));
+            float zWeight = abs(dot(worldNormal, float3(0, 0, 1)));
+            float rough = tex2D(_Roughness, IN.worldPos.yz ) * xWeight;
+            rough += tex2D(_Roughness, IN.worldPos.xz ) * yWeight;
+            rough += tex2D(_Roughness, IN.worldPos.xy ) * zWeight ;
+            float3 normal = UnpackNormal(tex2D(_NormalMap, IN.worldPos.yz*.4)) * xWeight;
+            normal += UnpackNormal(tex2D(_NormalMap, IN.worldPos.xz * .4)) * yWeight;
+            normal += UnpackNormal(tex2D(_NormalMap, IN.worldPos.xy * .4)) * zWeight;
+
+            float roughness = rough ;
             o.Smoothness = 1.0- roughness;
+            o.Normal = normal; 
             o.Alpha = c.a;
         }
         ENDCG

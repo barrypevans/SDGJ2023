@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 namespace Gameplay
 {
-    [RequireComponent(typeof(TubeMesh))]
+    //[RequireComponent(typeof(TubeMesh))]
     public class JacobTempPlayerController : MonoBehaviour
     {
         private const float SegmentLength = 0.1f;
@@ -14,9 +14,12 @@ namespace Gameplay
         public BoxCollider GroundedTrigger;
         public Material BodyMaterial;
 
+        public Transform bodyStart;
+
         public float TurnRate = 15;
         public float MaxBodyLength = 50f;
         public int MaxBodyPoints => Mathf.FloorToInt(MaxBodyLength / SegmentLength) +1;
+        public MovementState GetMovementState => _movementState;
 
         [Header("Config")]
         public AnimationCurve InputDistanceMovementCurve;
@@ -25,6 +28,8 @@ namespace Gameplay
 
         private MovementState _movementState;
         private float _forcedRetractionDestination = -1;
+        private float _caffeineTime = 0f;
+
         private List<GameObject> BodyPoints = new List<GameObject>();
         private Rigidbody _rigidbody;
         private float _cachedBodyLength;
@@ -36,7 +41,8 @@ namespace Gameplay
         void Start()
         {
             _rigidbody = GetComponent<Rigidbody>();
-            _tubeMeshObj = new GameObject();
+            _tubeMeshObj = new GameObject("TubeMesh");
+            _tubeMeshObj.tag = "Player";
             _tubeMesh = _tubeMeshObj.AddComponent<TubeMesh>();
             _tubeMeshObj.transform.position = Vector3.zero;
             _tubeMeshObj.GetComponent<MeshRenderer>().material = BodyMaterial;
@@ -47,6 +53,10 @@ namespace Gameplay
 
         void Update()
         {
+            if (Input.GetKeyDown(KeyCode.RightShift))
+                MaxBodyLength += 100;
+            else if (Input.GetKeyUp(KeyCode.RightShift))
+                MaxBodyLength -= 100;
 
             if (Input.GetKeyDown(KeyCode.R))
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
@@ -62,8 +72,15 @@ namespace Gameplay
                 _movementState = MovementState.IDLE;
             }
 
+
             DetectExtents();
             PickMovementState();
+            if (_caffeineTime > 0)
+            {
+                _caffeineTime -= Time.deltaTime;
+                //if(_movementState == MovementState.EXPANDING)
+                    //_rigidbody.velocity = new Vector3(_rigidbody.velocity.x, 1.5f, _rigidbody.velocity.z);
+            }
             ApplyMovementInput();
 
             PushXformToTube();
@@ -75,9 +92,20 @@ namespace Gameplay
             if (distance < 0)
                 _forcedRetractionDestination = 0;
             else
-                _forcedRetractionDestination = Mathf.Max(0,_cachedBodyLength-distance);
+            {
+                float newdestination = Mathf.Max(0, _cachedBodyLength - distance);
+                if (_forcedRetractionDestination > 0)
+                    _forcedRetractionDestination = Mathf.Min(_forcedRetractionDestination, newdestination);
+                else
+                    _forcedRetractionDestination = newdestination;
+            }
+
 
             // TODO: Retraction cause enum, play sfx, play audio
+        }
+        public void Caffeinate(float duration)
+        {
+            _caffeineTime = Mathf.Max(duration, _caffeineTime);
         }
 
         private void DetectExtents()
@@ -124,7 +152,7 @@ namespace Gameplay
         }
         private void ApplyMovementInput()
         {
-            _rigidbody.useGravity = _movementState != MovementState.RETRACTING && BodyPoints.Count<MaxBodyPoints;
+            _rigidbody.useGravity = _movementState != MovementState.RETRACTING && BodyPoints.Count < MaxBodyPoints;// && _caffeineTime<=0;
 
             switch (_movementState)
             {
@@ -164,7 +192,8 @@ namespace Gameplay
 
                     for (int i = BodyPoints.Count - 1; i > newFinalPoint; i--)
                     {
-                        Object.Destroy(BodyPoints[i]);
+                        BodyPoints[i].transform.position = Vector3.down * 1000f;// Dopey thing to detect exit trigger events?
+                        Object.Destroy(BodyPoints[i], 0.1f);
                         BodyPoints.RemoveAt(i);
                         _tubeMesh.PopNode();
 
@@ -172,12 +201,13 @@ namespace Gameplay
                     break;
             }
 
-            // We don't jump
-            if (_rigidbody.velocity.y > 0 &&
+            /*
+            // We don't jump, unless we're caffeinated
+            if (_rigidbody.velocity.y > 0 && _caffeineTime<=0 &&
                 Physics.OverlapBox(GroundedTrigger.bounds.center, GroundedTrigger.bounds.extents, transform.rotation, LayerMask.GetMask("Ground")).Length == 0)
             {
                 _rigidbody.velocity = new Vector3(_rigidbody.velocity.x, 0, _rigidbody.velocity.z);
-            }
+            }*/
 
         }
 
