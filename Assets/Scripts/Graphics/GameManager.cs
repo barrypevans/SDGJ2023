@@ -9,7 +9,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     string[] levelsToLoad = { "level2" , "level1.5", "levelHallway", "JacobTestScene"};
 
-    void Start()
+    void Awake()
     {
         m_clayUpdateRoutine = StartCoroutine(Co_ClayUpdate());
         LoadLevels();
