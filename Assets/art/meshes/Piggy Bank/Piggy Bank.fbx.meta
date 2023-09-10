@@ -3,7 +3,17 @@ guid: 5308e8230968a3748b415d94a77c7976
 ModelImporter:
   serializedVersion: 21100
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pig_Black
+    second: {fileID: 2100000, guid: 7f6ad930cc8e3c44f8cbc7abb2de66ad, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pig_Pink
+    second: {fileID: 2100000, guid: d0e6b4cc8acb0d54bbdb9dcba3e434dc, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
