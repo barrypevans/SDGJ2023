@@ -1,141 +1,420 @@
 fileFormatVersion: 2
 guid: dd9fad4181826420c92d21c7707c7108
-timeCreated: 1498169177
-licenseType: Store
 ModelImporter:
-  serializedVersion: 19
-  fileIDToRecycleName:
-    100000: BOWL
-    100002: Camera
-    100004: FORK_Salad
-    100006: GLASS_Red Wine
-    100008: GLASS_Tequila
-    100010: GLASS_Water
-    100012: GLASS_White Wine
-    100014: //RootNode
-    100016: OUI_FORK_Dessert
-    100018: OUI_FORK_Dinner
-    100020: OUI_FORK_Oyster
-    100022: OUI_Handle
-    100024: OUI_KNIFE_Butter
-    100026: OUI_KNIFE_Dinner
-    100028: OUI_Linen Napkin
-    100030: OUI_Linen Ring
-    100032: OUI_SPOON_Dessert
-    100034: OUI_SPOON_Soup
-    100036: PLATE_Bread and Butter
-    100038: PLATE_Dinner
-    100040: PLATE_Salad
-    100042: OUI_Handle.001
-    100044: OUI_Handle.002
-    100046: OUI_Handle.003
-    100048: OUI_Handle.004
-    100050: OUI_Handle.005
-    100052: OUI_Handle.006
-    100054: OUI_Handle.007
-    400000: BOWL
-    400002: Camera
-    400004: FORK_Salad
-    400006: GLASS_Red Wine
-    400008: GLASS_Tequila
-    400010: GLASS_Water
-    400012: GLASS_White Wine
-    400014: //RootNode
-    400016: OUI_FORK_Dessert
-    400018: OUI_FORK_Dinner
-    400020: OUI_FORK_Oyster
-    400022: OUI_Handle
-    400024: OUI_KNIFE_Butter
-    400026: OUI_KNIFE_Dinner
-    400028: OUI_Linen Napkin
-    400030: OUI_Linen Ring
-    400032: OUI_SPOON_Dessert
-    400034: OUI_SPOON_Soup
-    400036: PLATE_Bread and Butter
-    400038: PLATE_Dinner
-    400040: PLATE_Salad
-    400042: OUI_Handle.001
-    400044: OUI_Handle.002
-    400046: OUI_Handle.003
-    400048: OUI_Handle.004
-    400050: OUI_Handle.005
-    400052: OUI_Handle.006
-    400054: OUI_Handle.007
-    2300000: BOWL
-    2300002: FORK_Salad
-    2300004: GLASS_Red Wine
-    2300006: GLASS_Tequila
-    2300008: GLASS_Water
-    2300010: GLASS_White Wine
-    2300012: OUI_FORK_Dessert
-    2300014: OUI_FORK_Dinner
-    2300016: OUI_FORK_Oyster
-    2300018: OUI_Handle
-    2300020: OUI_KNIFE_Butter
-    2300022: OUI_KNIFE_Dinner
-    2300024: OUI_Linen Napkin
-    2300026: OUI_Linen Ring
-    2300028: OUI_SPOON_Dessert
-    2300030: OUI_SPOON_Soup
-    2300032: PLATE_Bread and Butter
-    2300034: PLATE_Dinner
-    2300036: PLATE_Salad
-    2300038: OUI_Handle.001
-    2300040: OUI_Handle.002
-    2300042: OUI_Handle.003
-    2300044: OUI_Handle.004
-    2300046: OUI_Handle.005
-    2300048: OUI_Handle.006
-    2300050: OUI_Handle.007
-    3300000: BOWL
-    3300002: FORK_Salad
-    3300004: GLASS_Red Wine
-    3300006: GLASS_Tequila
-    3300008: GLASS_Water
-    3300010: GLASS_White Wine
-    3300012: OUI_FORK_Dessert
-    3300014: OUI_FORK_Dinner
-    3300016: OUI_FORK_Oyster
-    3300018: OUI_Handle
-    3300020: OUI_KNIFE_Butter
-    3300022: OUI_KNIFE_Dinner
-    3300024: OUI_Linen Napkin
-    3300026: OUI_Linen Ring
-    3300028: OUI_SPOON_Dessert
-    3300030: OUI_SPOON_Soup
-    3300032: PLATE_Bread and Butter
-    3300034: PLATE_Dinner
-    3300036: PLATE_Salad
-    3300038: OUI_Handle.001
-    3300040: OUI_Handle.002
-    3300042: OUI_Handle.003
-    3300044: OUI_Handle.004
-    3300046: OUI_Handle.005
-    3300048: OUI_Handle.006
-    3300050: OUI_Handle.007
-    4300000: OUI_Linen Ring
-    4300002: OUI_Linen Napkin
-    4300004: OUI_Handle
-    4300006: OUI_FORK_Dessert
-    4300008: OUI_SPOON_Dessert
-    4300010: GLASS_Red Wine
-    4300012: GLASS_Tequila
-    4300014: GLASS_Water
-    4300016: GLASS_White Wine
-    4300018: PLATE_Salad
-    4300020: BOWL
-    4300022: OUI_KNIFE_Butter
-    4300024: PLATE_Bread and Butter
-    4300026: PLATE_Dinner
-    4300028: OUI_SPOON_Soup
-    4300030: OUI_FORK_Oyster
-    4300032: OUI_KNIFE_Dinner
-    4300034: FORK_Salad
-    4300036: OUI_FORK_Dinner
+  serializedVersion: 21100
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: BOWL
+  - first:
+      1: 100002
+    second: Camera
+  - first:
+      1: 100004
+    second: FORK_Salad
+  - first:
+      1: 100006
+    second: GLASS_Red Wine
+  - first:
+      1: 100008
+    second: GLASS_Tequila
+  - first:
+      1: 100010
+    second: GLASS_Water
+  - first:
+      1: 100012
+    second: GLASS_White Wine
+  - first:
+      1: 100014
+    second: //RootNode
+  - first:
+      1: 100016
+    second: OUI_FORK_Dessert
+  - first:
+      1: 100018
+    second: OUI_FORK_Dinner
+  - first:
+      1: 100020
+    second: OUI_FORK_Oyster
+  - first:
+      1: 100022
+    second: OUI_Handle
+  - first:
+      1: 100024
+    second: OUI_KNIFE_Butter
+  - first:
+      1: 100026
+    second: OUI_KNIFE_Dinner
+  - first:
+      1: 100028
+    second: OUI_Linen Napkin
+  - first:
+      1: 100030
+    second: OUI_Linen Ring
+  - first:
+      1: 100032
+    second: OUI_SPOON_Dessert
+  - first:
+      1: 100034
+    second: OUI_SPOON_Soup
+  - first:
+      1: 100036
+    second: PLATE_Bread and Butter
+  - first:
+      1: 100038
+    second: PLATE_Dinner
+  - first:
+      1: 100040
+    second: PLATE_Salad
+  - first:
+      1: 100042
+    second: OUI_Handle.001
+  - first:
+      1: 100044
+    second: OUI_Handle.002
+  - first:
+      1: 100046
+    second: OUI_Handle.003
+  - first:
+      1: 100048
+    second: OUI_Handle.004
+  - first:
+      1: 100050
+    second: OUI_Handle.005
+  - first:
+      1: 100052
+    second: OUI_Handle.006
+  - first:
+      1: 100054
+    second: OUI_Handle.007
+  - first:
+      4: 400000
+    second: BOWL
+  - first:
+      4: 400002
+    second: Camera
+  - first:
+      4: 400004
+    second: FORK_Salad
+  - first:
+      4: 400006
+    second: GLASS_Red Wine
+  - first:
+      4: 400008
+    second: GLASS_Tequila
+  - first:
+      4: 400010
+    second: GLASS_Water
+  - first:
+      4: 400012
+    second: GLASS_White Wine
+  - first:
+      4: 400014
+    second: //RootNode
+  - first:
+      4: 400016
+    second: OUI_FORK_Dessert
+  - first:
+      4: 400018
+    second: OUI_FORK_Dinner
+  - first:
+      4: 400020
+    second: OUI_FORK_Oyster
+  - first:
+      4: 400022
+    second: OUI_Handle
+  - first:
+      4: 400024
+    second: OUI_KNIFE_Butter
+  - first:
+      4: 400026
+    second: OUI_KNIFE_Dinner
+  - first:
+      4: 400028
+    second: OUI_Linen Napkin
+  - first:
+      4: 400030
+    second: OUI_Linen Ring
+  - first:
+      4: 400032
+    second: OUI_SPOON_Dessert
+  - first:
+      4: 400034
+    second: OUI_SPOON_Soup
+  - first:
+      4: 400036
+    second: PLATE_Bread and Butter
+  - first:
+      4: 400038
+    second: PLATE_Dinner
+  - first:
+      4: 400040
+    second: PLATE_Salad
+  - first:
+      4: 400042
+    second: OUI_Handle.001
+  - first:
+      4: 400044
+    second: OUI_Handle.002
+  - first:
+      4: 400046
+    second: OUI_Handle.003
+  - first:
+      4: 400048
+    second: OUI_Handle.004
+  - first:
+      4: 400050
+    second: OUI_Handle.005
+  - first:
+      4: 400052
+    second: OUI_Handle.006
+  - first:
+      4: 400054
+    second: OUI_Handle.007
+  - first:
+      23: 2300000
+    second: BOWL
+  - first:
+      23: 2300002
+    second: FORK_Salad
+  - first:
+      23: 2300004
+    second: GLASS_Red Wine
+  - first:
+      23: 2300006
+    second: GLASS_Tequila
+  - first:
+      23: 2300008
+    second: GLASS_Water
+  - first:
+      23: 2300010
+    second: GLASS_White Wine
+  - first:
+      23: 2300012
+    second: OUI_FORK_Dessert
+  - first:
+      23: 2300014
+    second: OUI_FORK_Dinner
+  - first:
+      23: 2300016
+    second: OUI_FORK_Oyster
+  - first:
+      23: 2300018
+    second: OUI_Handle
+  - first:
+      23: 2300020
+    second: OUI_KNIFE_Butter
+  - first:
+      23: 2300022
+    second: OUI_KNIFE_Dinner
+  - first:
+      23: 2300024
+    second: OUI_Linen Napkin
+  - first:
+      23: 2300026
+    second: OUI_Linen Ring
+  - first:
+      23: 2300028
+    second: OUI_SPOON_Dessert
+  - first:
+      23: 2300030
+    second: OUI_SPOON_Soup
+  - first:
+      23: 2300032
+    second: PLATE_Bread and Butter
+  - first:
+      23: 2300034
+    second: PLATE_Dinner
+  - first:
+      23: 2300036
+    second: PLATE_Salad
+  - first:
+      23: 2300038
+    second: OUI_Handle.001
+  - first:
+      23: 2300040
+    second: OUI_Handle.002
+  - first:
+      23: 2300042
+    second: OUI_Handle.003
+  - first:
+      23: 2300044
+    second: OUI_Handle.004
+  - first:
+      23: 2300046
+    second: OUI_Handle.005
+  - first:
+      23: 2300048
+    second: OUI_Handle.006
+  - first:
+      23: 2300050
+    second: OUI_Handle.007
+  - first:
+      33: 3300000
+    second: BOWL
+  - first:
+      33: 3300002
+    second: FORK_Salad
+  - first:
+      33: 3300004
+    second: GLASS_Red Wine
+  - first:
+      33: 3300006
+    second: GLASS_Tequila
+  - first:
+      33: 3300008
+    second: GLASS_Water
+  - first:
+      33: 3300010
+    second: GLASS_White Wine
+  - first:
+      33: 3300012
+    second: OUI_FORK_Dessert
+  - first:
+      33: 3300014
+    second: OUI_FORK_Dinner
+  - first:
+      33: 3300016
+    second: OUI_FORK_Oyster
+  - first:
+      33: 3300018
+    second: OUI_Handle
+  - first:
+      33: 3300020
+    second: OUI_KNIFE_Butter
+  - first:
+      33: 3300022
+    second: OUI_KNIFE_Dinner
+  - first:
+      33: 3300024
+    second: OUI_Linen Napkin
+  - first:
+      33: 3300026
+    second: OUI_Linen Ring
+  - first:
+      33: 3300028
+    second: OUI_SPOON_Dessert
+  - first:
+      33: 3300030
+    second: OUI_SPOON_Soup
+  - first:
+      33: 3300032
+    second: PLATE_Bread and Butter
+  - first:
+      33: 3300034
+    second: PLATE_Dinner
+  - first:
+      33: 3300036
+    second: PLATE_Salad
+  - first:
+      33: 3300038
+    second: OUI_Handle.001
+  - first:
+      33: 3300040
+    second: OUI_Handle.002
+  - first:
+      33: 3300042
+    second: OUI_Handle.003
+  - first:
+      33: 3300044
+    second: OUI_Handle.004
+  - first:
+      33: 3300046
+    second: OUI_Handle.005
+  - first:
+      33: 3300048
+    second: OUI_Handle.006
+  - first:
+      33: 3300050
+    second: OUI_Handle.007
+  - first:
+      43: 4300000
+    second: OUI_Linen Ring
+  - first:
+      43: 4300002
+    second: OUI_Linen Napkin
+  - first:
+      43: 4300004
+    second: OUI_Handle
+  - first:
+      43: 4300006
+    second: OUI_FORK_Dessert
+  - first:
+      43: 4300008
+    second: OUI_SPOON_Dessert
+  - first:
+      43: 4300010
+    second: GLASS_Red Wine
+  - first:
+      43: 4300012
+    second: GLASS_Tequila
+  - first:
+      43: 4300014
+    second: GLASS_Water
+  - first:
+      43: 4300016
+    second: GLASS_White Wine
+  - first:
+      43: 4300018
+    second: PLATE_Salad
+  - first:
+      43: 4300020
+    second: BOWL
+  - first:
+      43: 4300022
+    second: OUI_KNIFE_Butter
+  - first:
+      43: 4300024
+    second: PLATE_Bread and Butter
+  - first:
+      43: 4300026
+    second: PLATE_Dinner
+  - first:
+      43: 4300028
+    second: OUI_SPOON_Soup
+  - first:
+      43: 4300030
+    second: OUI_FORK_Oyster
+  - first:
+      43: 4300032
+    second: OUI_KNIFE_Dinner
+  - first:
+      43: 4300034
+    second: FORK_Salad
+  - first:
+      43: 4300036
+    second: OUI_FORK_Dinner
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: GL_basic_Glass material
+    second: {fileID: 2100000, guid: 0a11be50342d7a749ad8625b366ff218, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material.003
+    second: {fileID: 2100000, guid: ccf1cef36e3d51647961aa09cd7239fe, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ST_basic_ceramic
+    second: {fileID: 2100000, guid: 6131204ddb05dd94abf6b5416924b00c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TE_cotton_G
+    second: {fileID: 2100000, guid: 7c5c89b5aafdd0643aaaf30b1bbf9ca2, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: UBER_Metal
+    second: {fileID: 2100000, guid: 677f2b1a2df9f864bbca0d23db96b0ef, type: 2}
   materials:
-    importMaterials: 1
+    materialImportMode: 1
     materialName: 0
     materialSearch: 1
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -148,12 +427,15 @@ ModelImporter:
     animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
+    extraUserProperties: []
     clipAnimations: []
     isReadable: 1
   meshes:
@@ -161,26 +443,45 @@ ModelImporter:
     globalScale: 1
     meshCompression: 0
     addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 0
     importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    fileIdsGeneration: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 0
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
+    normalCalculationMode: 0
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 1
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
   importAnimation: 1
-  copyAvatar: 0
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5
@@ -190,14 +491,17 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 1
     rootMotionBoneName: 
-    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 0
   humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
   additionalBone: 0
   userData: 
   assetBundleName: 
