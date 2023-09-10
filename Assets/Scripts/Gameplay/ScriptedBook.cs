@@ -19,13 +19,19 @@ namespace Gameplay
         {
             _startPos = Book.position;
             _startRot = Book.rotation;
-            CollisionListener.CollisionEnter += ChildCollided;
+            if(CollisionListener!=null)
+                CollisionListener.CollisionEnter += ChildCollided;
         }
 
         private void ChildCollided(Collision col)
         {
             if (!_fallen)
-                StartCoroutine(Fall());
+                TriggerFall();
+        }
+
+        public void TriggerFall()
+        {
+            StartCoroutine(Fall());
         }
 
         IEnumerator Fall()
