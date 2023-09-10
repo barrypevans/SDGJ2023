@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Utility;
 
 namespace Gameplay
 {
@@ -23,6 +24,9 @@ namespace Gameplay
             _hasTriggered = true;
 
             ExitDoor.TriggerFall();
+            ExitDoor.Book.GetComponent<Collider>().enabled = false;
+
+            AudioController.Instance.TriggerDialogue(2);
 
             // Todo: audio cues
         }
