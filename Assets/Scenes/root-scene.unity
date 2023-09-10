@@ -344,7 +344,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3005397065586576106, guid: 119d85a46ee416e43857f4a086a4409d, type: 3}
       propertyPath: MaxBodyLength
-      value: 500000
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3005397065586576107, guid: 119d85a46ee416e43857f4a086a4409d, type: 3}
       propertyPath: m_Name
@@ -604,6 +604,7 @@ GameObject:
   m_Component:
   - component: {fileID: 794486776}
   - component: {fileID: 794486775}
+  - component: {fileID: 794486777}
   m_Layer: 0
   m_Name: game-manager
   m_TagString: Untagged
@@ -637,6 +638,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &794486777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 794486774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35593f40481d6f540882345bbf2b0853, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Assets: {fileID: 11400000, guid: ee08b0438dadfe24e917c8bf37da0815, type: 2}
+  MusicVolume: 1
 --- !u!1001 &799504191
 PrefabInstance:
   m_ObjectHideFlags: 0

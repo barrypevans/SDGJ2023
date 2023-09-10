@@ -25,7 +25,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 02d736ec586aeb240ac9891817044c57, type: 3}
   ClayPickups:
   - {fileID: 8300000, guid: 9718e5a97daf66f4a9ca19c8278de38d, type: 3}
-  StretchLoop: {fileID: 0}
+  StretchLoop: {fileID: 8300000, guid: cd8a978b104f0a54dbe99c7337911a3b, type: 3}
   Dialogue:
   - {fileID: 8300000, guid: 5b58f6920fb97ab42bd4e206efa086be, type: 3}
   - {fileID: 8300000, guid: b41e7277290cf2e43ba8e6f28c3e6339, type: 3}

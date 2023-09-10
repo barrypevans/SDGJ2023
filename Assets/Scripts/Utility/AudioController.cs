@@ -35,7 +35,7 @@ namespace Utility
             {
                 float duration = Play(Assets.Dialogue[dialogue], false).clip.length;
                 StartCoroutine(DuckMusic(duration));
-                _currentDialogue++; // Don't repeat
+                _currentDialogue = dialogue+1; // Don't repeat
             }
         }
 
