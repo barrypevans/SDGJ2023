@@ -32,3 +32,4 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 6f702fb35d877894c85c1a3d76b60c07, type: 3}
   - {fileID: 8300000, guid: b2e98508d83e76348b51dbbb92b8e01c, type: 3}
   - {fileID: 8300000, guid: 0cb64523443423243853aae5b2b255ad, type: 3}
+  DoorOpen: {fileID: 8300000, guid: 626449ab8cb002842b0f1c4311b813c8, type: 3}

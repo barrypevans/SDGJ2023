@@ -27,6 +27,7 @@ namespace Gameplay
             ExitDoor.Book.GetComponent<Collider>().enabled = false;
 
             AudioController.Instance.TriggerDialogue(2);
+            AudioController.Play(AudioController.Instance.Assets.DoorOpen, false);
 
             // Todo: audio cues
         }
