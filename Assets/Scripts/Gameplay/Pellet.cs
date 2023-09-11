@@ -48,14 +48,13 @@ namespace Gameplay
                     if(Random.value>0.9f)
                         AudioController.Play(AudioController.Instance.Assets.CatChirps.GetRandom(), false).volume = 0.4f;
                 }
-            }
-
-            if(isFinalPellete)
-            {
-                var subtitleObj = GameObject.Find("final-image");
-                if (subtitleObj && subtitleObj.GetComponent<TitleSplash>())
+                if (isFinalPellete)
                 {
-                    subtitleObj.GetComponent<TitleSplash>().ShowText();
+                    var subtitleObj = GameObject.Find("final-image");
+                    if (subtitleObj && subtitleObj.GetComponent<TitleSplash>())
+                    {
+                        subtitleObj.GetComponent<TitleSplash>().ShowText(5.0f);
+                    }
                 }
             }
         }
