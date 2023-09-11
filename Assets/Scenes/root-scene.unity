@@ -653,6 +653,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Assets: {fileID: 11400000, guid: ee08b0438dadfe24e917c8bf37da0815, type: 2}
   MusicVolume: 1
+  StartingMusicIndex: 0
 --- !u!1001 &799504191
 PrefabInstance:
   m_ObjectHideFlags: 0
