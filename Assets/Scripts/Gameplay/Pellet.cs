@@ -7,7 +7,7 @@ namespace Gameplay
 {
     public class Pellet : MonoBehaviour
     {
-
+        public bool isFinalPellete = false;
         public float AddedLength = 2.5f;
         private Vector3 _initialPos;
         private float _liveTime = 0f;
@@ -47,6 +47,15 @@ namespace Gameplay
                     AudioController.Play(AudioController.Instance.Assets.ClayPickups.GetRandom(), false);
                     if(Random.value>0.9f)
                         AudioController.Play(AudioController.Instance.Assets.CatChirps.GetRandom(), false).volume = 0.4f;
+                }
+            }
+
+            if(isFinalPellete)
+            {
+                var subtitleObj = GameObject.Find("final-image");
+                if (subtitleObj && subtitleObj.GetComponent<TitleSplash>())
+                {
+                    subtitleObj.GetComponent<TitleSplash>().ShowText();
                 }
             }
         }
