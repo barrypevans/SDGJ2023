@@ -17,7 +17,10 @@ public class GameManager : MonoSingleton<GameManager>
 
     void Update()
     {
-        
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
     }
 
     void LoadLevels()
