@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class LightingRegion : MonoBehaviour
 {
+    bool subtitleShown = false;
     bool isActive = false;
     private void OnTriggerStay(Collider other)
     {
@@ -12,6 +13,16 @@ public class LightingRegion : MonoBehaviour
             isActive = true;
             if (giRoot)
                 segi.followTransform = giRoot;
+            
+            if(!subtitleShown)
+            {
+                subtitleShown = true;
+                var subtitleObj = GameObject.Find(subtitleName);
+                if(subtitleObj && subtitleObj.GetComponent<TitleSplash>())
+                {
+                    subtitleObj.GetComponent<TitleSplash>().ShowText();
+                }
+            }
         }
        
     }
@@ -32,6 +43,7 @@ public class LightingRegion : MonoBehaviour
     public Vector3 sunRotation;
     public float softSun;
     public float skyContribution;
+    public string subtitleName;
     public SEGI segi;
     private void Awake()
     {

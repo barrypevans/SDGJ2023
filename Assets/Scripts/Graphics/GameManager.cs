@@ -7,7 +7,7 @@ public class GameManager : MonoSingleton<GameManager>
 {
     Coroutine m_clayUpdateRoutine;
 
-    string[] levelsToLoad = { "level2" , "level1.5", "levelHallway", "JacobTestScene"};
+    string[] levelsToLoad = { "level2" , "level1.5", "levelHallway", "JacobTestScene", "title-ui" };
 
     void Awake()
     {
