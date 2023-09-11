@@ -13,22 +13,27 @@ namespace Utility
         private int _currentDialogue = 0;
         private bool _playingDialogue = false;
 
+        public int StartingMusicIndex = 0;
+
         void Start()
         {
-            StartCoroutine(PlayMusic());
+            PlayTrack(StartingMusicIndex);
+            // 0 insectfactory
+            // 1 spacecadet
+            // 2 stumble
+            // 3 world
         }
 
-        IEnumerator PlayMusic()
+        public void PlayTrack(int trackIndex)
         {
-            _music = Play(Assets.Music[0], false);
-            float duration = _music.clip.length;
-            while (true)
+            if (_music != null)
             {
-                yield return new WaitForSeconds(duration);
-                _music = Play(Assets.Music.GetRandom(), false);
-                duration = _music.clip.length;
+                _music.Stop();
+                Object.Destroy(_music);
             }
+            _music = Play(Assets.Music[trackIndex], true);
         }
+
         public void TriggerDialogue(int dialogue)
         {
             if (_currentDialogue <= dialogue && !_playingDialogue)

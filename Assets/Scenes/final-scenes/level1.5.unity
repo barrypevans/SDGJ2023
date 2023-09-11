@@ -2629,6 +2629,63 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3431769699281883590, guid: f65183ca19c1b4448a412998605b2216, type: 3}
   m_PrefabInstance: {fileID: 1015550815}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1020962009
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1316665518538948948, guid: 9c07c967c7fbfda41920a3c17cee84a7, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1316665518538948948, guid: 9c07c967c7fbfda41920a3c17cee84a7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.214
+      objectReference: {fileID: 0}
+    - target: {fileID: 1316665518538948948, guid: 9c07c967c7fbfda41920a3c17cee84a7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 7.843
+      objectReference: {fileID: 0}
+    - target: {fileID: 1316665518538948948, guid: 9c07c967c7fbfda41920a3c17cee84a7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 20.827
+      objectReference: {fileID: 0}
+    - target: {fileID: 1316665518538948948, guid: 9c07c967c7fbfda41920a3c17cee84a7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.005991977
+      objectReference: {fileID: 0}
+    - target: {fileID: 1316665518538948948, guid: 9c07c967c7fbfda41920a3c17cee84a7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.07349774
+      objectReference: {fileID: 0}
+    - target: {fileID: 1316665518538948948, guid: 9c07c967c7fbfda41920a3c17cee84a7, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.99521893
+      objectReference: {fileID: 0}
+    - target: {fileID: 1316665518538948948, guid: 9c07c967c7fbfda41920a3c17cee84a7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.06404259
+      objectReference: {fileID: 0}
+    - target: {fileID: 1316665518538948948, guid: 9c07c967c7fbfda41920a3c17cee84a7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -7.273
+      objectReference: {fileID: 0}
+    - target: {fileID: 1316665518538948948, guid: 9c07c967c7fbfda41920a3c17cee84a7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 178.767
+      objectReference: {fileID: 0}
+    - target: {fileID: 1316665518538948948, guid: 9c07c967c7fbfda41920a3c17cee84a7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 8.526
+      objectReference: {fileID: 0}
+    - target: {fileID: 1805500333199547374, guid: 9c07c967c7fbfda41920a3c17cee84a7, type: 3}
+      propertyPath: m_Name
+      value: frog-pickup
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9c07c967c7fbfda41920a3c17cee84a7, type: 3}
 --- !u!1 &1044518353
 GameObject:
   m_ObjectHideFlags: 0

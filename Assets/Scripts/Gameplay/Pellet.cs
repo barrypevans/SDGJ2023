@@ -45,6 +45,8 @@ namespace Gameplay
                     // Lvl 1 end handled by lvl 1 end script
 
                     AudioController.Play(AudioController.Instance.Assets.ClayPickups.GetRandom(), false);
+                    if(Random.value>0.9f)
+                        AudioController.Play(AudioController.Instance.Assets.CatChirps.GetRandom(), false).volume = 0.4f;
                 }
             }
         }

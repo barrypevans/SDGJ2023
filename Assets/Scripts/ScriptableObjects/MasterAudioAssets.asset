@@ -17,7 +17,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 97d00de0f6c649240be88baa134052d8, type: 3}
   - {fileID: 8300000, guid: f6f03b4cd365bf546bf83469b2161d38, type: 3}
   - {fileID: 8300000, guid: dc68bbdfeccd4af4e9c8f23abc875411, type: 3}
-  CatChirps: []
+  CatChirps:
+  - {fileID: 8300000, guid: 4b65a00025b1a50458a1f017e97b7ce8, type: 3}
+  - {fileID: 8300000, guid: 5a96448ccf9a08e4ba40df650be9ad2d, type: 3}
   CatReacts:
   - {fileID: 8300000, guid: a4529802fb6701b45b2c9dfaedaf24b8, type: 3}
   - {fileID: 8300000, guid: e289caf68d6fdd6438291645eefd7bd9, type: 3}
