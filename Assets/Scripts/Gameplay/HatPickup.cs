@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Utility;
 
 namespace Gameplay
 {
@@ -25,6 +26,7 @@ namespace Gameplay
             if (other.tag == "Player")
             {
                 other.GetComponent<HatMgr>().SetHat(hatType);
+                AudioController.Play(AudioController.Instance.Assets.CatChirps.GetRandom(), false);
                 Destroy(gameObject);
             }
         }
